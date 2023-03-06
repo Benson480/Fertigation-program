@@ -1,0 +1,8 @@
+dic1 = {"first": 1, "second": 4, "third": 8} 
+dic2 = {"first": 9, "second": 5, "fourth": 3}
+dic3 = dict(dic2)
+
+for k, v in dic1.items():
+    dic3[k] = [dic3[k], v] if k in dic3 else v
+
+print(dic3) # 
