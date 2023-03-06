@@ -1,0 +1,64 @@
+DATE: 5/9/22_Hydroponics_UV-Calcium Nitrate 205
+DATE: 5/9/22_Hydroponics_UV-Potassium Nitrate 60
+DATE: 5/9/22_Hydroponics_UV-Magnesium Nitrate 50
+DATE: 5/9/22_Hydroponics_UV-Ferilline 12
+DATE: 5/9/22_Hydroponics_UV-Borax 1.1
+DATE: 5/9/22_Hydroponics_UV-Magnesium Sulphate 60
+DATE: 5/9/22_Hydroponics_UV-Mono p phosphate 65
+DATE: 5/9/22_Hydroponics_UV-Potassium Sulphate 30
+DATE: 5/9/22_Hydroponics_UV-Ammonium Sulphate 20
+DATE: 5/9/22_Hydroponics_UV-Sodium Molybdate 0.04
+DATE: 5/9/22_Hydroponics_UV-Mn chellate 0.63
+DATE: 5/9/22_Hydroponics_UV-Zn chellate 0.75
+DATE: 5/9/22_Hydroponics_UV-Cu chellate 0.57
+DATE: 5/9/22_Hydroponics_UV-Nitric acid 15.1
+DATE: 5/9/22_Hydroponics_UV-Ferromax 0
+DATE: 5/9/22_Hydroponics_UV-Phosphoric acid 0
+DATE: 5/9/22_Hydroponics_Fresh-Calcium Nitrate 225
+DATE: 5/9/22_Hydroponics_Fresh-Potassium Nitrate 75
+DATE: 5/9/22_Hydroponics_Fresh-Magnesium Nitrate 40
+DATE: 5/9/22_Hydroponics_Fresh-Ferilline 15
+DATE: 5/9/22_Hydroponics_Fresh-Borax 0.9
+DATE: 5/9/22_Hydroponics_Fresh-Magnesium Sulphate 50
+DATE: 5/9/22_Hydroponics_Fresh-Mono p phosphate 70
+DATE: 5/9/22_Hydroponics_Fresh-Potassium Sulphate 10
+DATE: 5/9/22_Hydroponics_Fresh-Ammonium Sulphate 0
+DATE: 5/9/22_Hydroponics_Fresh-Sodium Molybdate 0.05
+DATE: 5/9/22_Hydroponics_Fresh-Mn chellate 1.05
+DATE: 5/9/22_Hydroponics_Fresh-Zn chellate 1
+DATE: 5/9/22_Hydroponics_Fresh-Cu chellate 0.3
+DATE: 5/9/22_Hydroponics_Fresh-Nitric acid 12.1
+DATE: 5/9/22_Hydroponics_Fresh-Ferromax 0
+DATE: 5/9/22_Hydroponics_Fresh-Phosphoric acid 0
+DATE: 5/9/22_Soil_UV-Calcium Nitrate 220
+DATE: 5/9/22_Soil_UV-Potassium Nitrate 20
+DATE: 5/9/22_Soil_UV-Magnesium Nitrate 35
+DATE: 5/9/22_Soil_UV-Ferilline 18
+DATE: 5/9/22_Soil_UV-Borax 1.95
+DATE: 5/9/22_Soil_UV-Magnesium Sulphate 55
+DATE: 5/9/22_Soil_UV-Mono p phosphate 35
+DATE: 5/9/22_Soil_UV-Potassium Sulphate 90
+DATE: 5/9/22_Soil_UV-Ammonium Sulphate 20
+DATE: 5/9/22_Soil_UV-Sodium Molybdate 0.07
+DATE: 5/9/22_Soil_UV-Mn chellate 1.46
+DATE: 5/9/22_Soil_UV-Zn chellate 1.4
+DATE: 5/9/22_Soil_UV-Cu chellate 1.05
+DATE: 5/9/22_Soil_UV-Nitric acid 15.1
+DATE: 5/9/22_Soil_UV-Ferromax 0
+DATE: 5/9/22_Soil_UV-Phosphoric acid 0
+DATE: 5/9/22_Soil_Fresh-Calcium Nitrate 220
+DATE: 5/9/22_Soil_Fresh-Potassium Nitrate 20
+DATE: 5/9/22_Soil_Fresh-Magnesium Nitrate 35
+DATE: 5/9/22_Soil_Fresh-Ferilline 18
+DATE: 5/9/22_Soil_Fresh-Borax 1.95
+DATE: 5/9/22_Soil_Fresh-Magnesium Sulphate 55
+DATE: 5/9/22_Soil_Fresh-Mono p phosphate 35
+DATE: 5/9/22_Soil_Fresh-Potassium Sulphate 90
+DATE: 5/9/22_Soil_Fresh-Ammonium Sulphate 20
+DATE: 5/9/22_Soil_Fresh-Sodium Molybdate 0.07
+DATE: 5/9/22_Soil_Fresh-Mn chellate 1.46
+DATE: 5/9/22_Soil_Fresh-Zn chellate 1.4
+DATE: 5/9/22_Soil_Fresh-Cu chellate 1.05
+DATE: 5/9/22_Soil_Fresh-Nitric acid 15.1
+DATE: 5/9/22_Soil_Fresh-Ferromax 0
+DATE: 5/9/22_Soil_Fresh-Phosphoric acid 0

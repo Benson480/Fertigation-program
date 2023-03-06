@@ -1,0 +1,1 @@
+pyinstaller --onefile --icon=myapp.ico -w --collect-all tkinterweb FertRegimeappnoPmw.py

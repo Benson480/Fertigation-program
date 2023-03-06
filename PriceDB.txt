@@ -1,0 +1,38 @@
+DATE: 4/21/22-Calcium Nitrate 1.12
+DATE: 4/21/22-Potassium Nitrate 1.94
+DATE: 4/21/22-Magnesium Nitrate 0.69
+DATE: 4/21/22-Ferilline 6.69
+DATE: 4/21/22-Borax 1.01
+DATE: 4/21/22-Magnesium Sulphate 0.47
+DATE: 4/21/22-Mono p phosphate 2.93
+DATE: 4/21/22-Potassium Sulphate 1.25
+DATE: 4/21/22-Ammonium Sulphate 0.68
+DATE: 4/21/22-Sodium Molybdate 23.44
+DATE: 4/21/22-Mn chellate 8.92
+DATE: 4/21/22-Zn chellate 9.1
+DATE: 4/21/22-Cu chellate 9.1
+DATE: 4/21/22-Urea 1.41
+DATE: 4/21/22-Copper Sulphate 3.88
+DATE: 4/21/22-Phosphoric acid 1.26
+DATE: 4/21/22-Nitric acid 0.58
+DATE: 4/21/22-Hydrogen peroxide 1.2
+DATE: 4/21/22-Folia K 8.05
+DATE: 4/21/22-Ferromax 6.69
+DATE: 6/21/22-Calcium Nitrate 1.22
+DATE: 6/21/22-Ammonium Sulphate 0.73
+DATE: 6/21/22-Borax 1.05
+DATE: 6/21/22-Copper Sulphate 3.8
+DATE: 6/21/22-Ferilline 6.69
+DATE: 6/21/22-Ferromax 6.79
+DATE: 6/21/22-Magnesium Nitrate 0.83
+DATE: 6/21/22-Magnesium Sulphate 0.43
+DATE: 6/21/22-Cu chellate 9.18
+DATE: 6/21/22-Mn chellate 8.98
+DATE: 6/21/22-Zinc Sulphate 9.2
+DATE: 6/21/22-Mono p phosphate 2.85
+DATE: 6/21/22-Potassium Nitrate 1.90
+DATE: 6/21/22-Potassium Sulphate 1.28
+DATE: 6/21/22-Sodium Molybdate 23.01
+DATE: 6/21/22-Zinc Sulphate 0.85
+DATE: 6/21/22-Urea 1.33
+DATE: 4/15/22-Libfer 6% 5.98

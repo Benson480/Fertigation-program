@@ -1,0 +1,13 @@
+s = 'python is fun'
+c = 'n'
+print(s.rfind(c))
+youtube-dl.exe "https://youtu.be/3qiLI1ILMlU"
+The python-espeak package is available in Debian, Ubuntu, Redhat, and other Linux distributions. It has recent updates, and works fine.
+from espeak import espeak
+espeak.synth("Hello world.")
+install windows in ubuntu: https://itsfoss.com/install-windows-10-virtualbox-linux/
+install kali in ubuntu: https://technowikis.com/39142/install-kali-linux-on-ubuntu-20-04-virtualbox
+Main program
+Database entry... if entry is null config to 0
+all pases to be debugged for all possible error.
+maintain the principle of harmmonised variable names

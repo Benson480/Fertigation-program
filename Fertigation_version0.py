@@ -73,8 +73,6 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 from reportlab.pdfgen.canvas import Canvas as canv
 from tkinterweb import HtmlFrame
 import tkinterweb
-import re
-from tkinterhtml import *
 
 
 ### convert png to ico file
@@ -353,42 +351,26 @@ def login():
         else:
             showMessage("Login Failed!\nWrong Username", type='error', timeout=3500)
     def send_mail():
-        try:
-            global emaile
-            host = "smtp.gmail.com"
-            mmail = 'bensonmwangi101@gmail.com'
-            hmail = emaile.get()
-            reg = re.compile(r'''(
-            (.*)
-            @
-            [a-zA-Z]+
-            [.+_-]
-            [a-zA-Z]+
-
-            )''',re.VERBOSE)
-            find = reg.search(hmail)
-            if find == None:
-                showMessage('invalid email address', type='error', timeout=2000)
-            else:
-                showMessage("Password link has been sent to your email", type='info', timeout=2500)
-            subject = 'Password reset'
-            text = 'password is 1234'
-            server = smtplib.SMTP(host, 587)
-            server.ehlo()
-            server.starttls()
-            # my token to send mail
-            # ....
-            # smtp.pelconsip.aruba.it
-            #password = 'kvsowmndcyjztyrf'
-            password = 'kzfevahqhuhffqfo'
-            #password = 'yprbzdjnlxjdswsg'
-            #password = 'uoazjqkuencmhakg'
-            # errore second factor
-            server.login(mmail, password)
-            server.sendmail(mmail, [hmail], text)
-            server.quit()
-        except:
-            pass
+        global emaile
+        host = "smtp.gmail.com"
+        mmail = 'bensonmwangi101@gmail.com'
+        hmail = emaile.get()
+        subject = 'Password reset'
+        text = 'password is 1234'
+        server = smtplib.SMTP(host, 587)
+        server.ehlo()
+        server.starttls()
+        # my token to send mail
+        # ....
+        # smtp.pelconsip.aruba.it
+        #password = 'kvsowmndcyjztyrf'
+        password = 'kzfevahqhuhffqfo'
+        #password = 'yprbzdjnlxjdswsg'
+        #password = 'uoazjqkuencmhakg'
+        # errore second factor
+        server.login(mmail, password)
+        server.sendmail(mmail, [hmail], text)
+        server.quit()
 
     def tkinput():
         global emaile
@@ -1411,1147 +1393,1147 @@ def cal_sum():
   
     #fertilizers
     
+##    try:
+    t1=float(Calcium_NitrateE.get())
+    t2=float(Potassium_NitrateE.get())
+    t3=float(Magnesium_NitrateE.get())
+    t4=float(FerillineE.get())
+    t5=float(BoraxE.get())
+    t6=float(Magnesium_sulphateE.get())
+    t7=float(Mono_p_phosphateE.get())
+    t8=float(Potassium_sulphateE.get())
+    t9=float(Ammonium_sulphateE.get())
+    t10=float(Sodium_MolyE.get())
+    t11=float(Mn_chellateE.get())
+    t12=float(Zn_chellateE.get())
+    t13=float(Cu_chellateE.get())
+    t14=float(Nitric_acidE.get())
+    t15=float(Phosphoric_acidE.get())
+    t16=float(Water_cubicME.get())
+    t17=float(FerromaxE.get())
+    t18=float(Uv_percentE.get())
+    t19=float(newfertE.get())
+    t20=str(ghE.get())
+    
+    # Logic ppm
+
+    #Fertilizers in grams
+
+    Convert_to_grams = 1000
+    g1 = t1 * Convert_to_grams
+    g2 = t2 * Convert_to_grams
+    g3 = t3 * Convert_to_grams
+    g4 = t4 * Convert_to_grams
+    g5 = t5 * Convert_to_grams
+    g6 = t6 * Convert_to_grams
+    g7 = t7 * Convert_to_grams
+    g8 = t8 * Convert_to_grams
+    g9 = t9 * Convert_to_grams
+    g10 = t10 * Convert_to_grams
+    g11 = t11 * Convert_to_grams
+    g12 = t12 * Convert_to_grams
+    g13 = t13 * Convert_to_grams
+    g14 = t14 * Convert_to_grams
+    g15 = t15 * Convert_to_grams
+    g16 = t17 * Convert_to_grams
+    g17 = t19 * Convert_to_grams
+
+    #Fertilizers grams per m3
+
+    gm1 = g1/t16
+    gm2 = g2/t16
+    gm3 = g3/t16
+    gm4 = g4/t16
+    gm5 = g5/t16
+    gm6 = g6/t16
+    gm7 = g7/t16
+    gm8 = g8/t16
+    gm9 = g9/t16
+    gm10 = g10/t16
+    gm11 = g11/t16
+    gm12 = g12/t16
+    gm13 = g13/t16
+    gm14 = g14/t16
+    gm15 = g15/t16
+    gm16 = g16/t16
+    gm17 = g17/t16
+
+    #Uv recycle %
+    
+    uv1 = t18/100
+    #ppm calculation label
+
+    NitrateL=Entry(frame4,relief='flat',bd=0,takefocus=0,width=20,highlightthickness=0,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    NitrateL.place(x = 2, y = 75)
+    NitrateL.bind("<Button-3>",do_popup)
+    separator = ttk.Separator(frame4, orient='vertical')
+    separator.place(x=250, y=40, relwidth=0, relheight=1)
+
+    phosphateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    phosphateL.place(x = 2, y = 100)
+    phosphateL.bind("<Button-3>",do_popup)
+
+    PotassiumL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    PotassiumL.place(x = 2, y = 125)
+    PotassiumL.bind("<Button-3>",do_popup)
+    
+    CalciumL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    CalciumL.place(x = 2, y = 150)
+    CalciumL.bind("<Button-3>",do_popup)
+
+    MagnesiumL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    MagnesiumL.place(x = 2, y = 175)
+    MagnesiumL.bind("<Button-3>",do_popup)
+
+
+    sulphateL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    sulphateL.place(x = 2, y = 200)
+    sulphateL.bind("<Button-3>",do_popup)
+
+    FerillineL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    FerillineL.place(x = 2, y = 225)
+    FerillineL.bind("<Button-3>",do_popup)
+
+
+    Mn_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Mn_chellateL.place(x = 2, y = 250)
+    Mn_chellateL.bind("<Button-3>",do_popup)
+
+
+    Cu_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Cu_chellateL.place(x = 2, y = 275)
+    Cu_chellateL.bind("<Button-3>",do_popup)
+
+
+    BoraxL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    BoraxL.place(x = 2, y = 300)
+    BoraxL.bind("<Button-3>",do_popup)
+
+
+    Zn_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Zn_chellateL.place(x = 2, y = 325)
+    Zn_chellateL.bind("<Button-3>",do_popup)
+
+    
+    Sodium_MolyL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Sodium_MolyL.place(x = 2, y = 350)
+    Sodium_MolyL.bind("<Button-3>",do_popup)
+
+
+    AmmoniumL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    AmmoniumL.place(x = 2, y = 375)
+    AmmoniumL.bind("<Button-3>",do_popup)
+
+
+    ECL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    ECL.place(x = 2, y = 400)
+    ECL.bind("<Button-3>",do_popup)
+
+    pHL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    pHL.place(x = 2, y = 425)
+    pHL.bind("<Button-3>",do_popup)
+
+    if t19 == 0:
+        pass
+    else:
+        newFertL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='white',borderwidth=1, fg='black',
+                            font=("Times",13))
+        newFertL.place(x = 2, y = 450)
+        newFertL.config(state='readonly')
+        newFertL.bind("<Button-3>",do_popup)
+
+    
+
+    #fertilizers entered
+
+    Calcium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Calcium_NitrateLF.place(x = 470, y = 75)
+    Calcium_NitrateLF.insert('end', t1)
+    Calcium_NitrateLF.config(state='readonly')
+    Calcium_NitrateLF.bind("<Button-3>",do_popup)
+    
+    Potassium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Potassium_NitrateLF.place(x = 470, y = 100)
+    Potassium_NitrateLF.insert('end', t2)
+    Potassium_NitrateLF.config(state='readonly')
+    Potassium_NitrateLF.bind("<Button-3>",do_popup)
+
+    Magnesium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Magnesium_NitrateLF.place(x = 470, y = 125)
+    Magnesium_NitrateLF.insert('end', t3)
+    Magnesium_NitrateLF.config(state='readonly')
+    Magnesium_NitrateLF.bind("<Button-3>",do_popup)
+
+    FerillineLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    FerillineLF.place(x = 470, y = 150)
+    FerillineLF.insert('end', t4)
+    FerillineLF.config(state='readonly')
+    FerillineLF.bind("<Button-3>",do_popup)
+    
+
+    BoraxLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    BoraxLF.place(x = 470, y = 175)
+    BoraxLF.insert('end', t5)
+    BoraxLF.config(state='readonly')
+    BoraxLF.bind("<Button-3>",do_popup)
+
+    Magnesium_sulphateLF=Entry(frame4,relief='flat',bd=0,justify="right",takefocus=0,highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Magnesium_sulphateLF.place(x = 470, y = 200)
+    Magnesium_sulphateLF.insert('end', t6)
+    Magnesium_sulphateLF.config(state='readonly')
+    Magnesium_sulphateLF.bind("<Button-3>",do_popup)
+
+    Mono_p_phosphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times", 13))
+    Mono_p_phosphateLF.place(x = 470, y = 225)
+    Mono_p_phosphateLF.insert('end', t7)
+    Mono_p_phosphateLF.config(state='readonly')
+    Mono_p_phosphateLF.bind("<Button-3>",do_popup)
+    
+    Potassium_sulphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Potassium_sulphateLF.place(x = 470, y = 250)
+    Potassium_sulphateLF.insert('end', t8)
+    Potassium_sulphateLF.config(state='readonly')
+    Potassium_sulphateLF.bind("<Button-3>",do_popup)
+
+    Ammonium_sulphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Ammonium_sulphateLF.place(x = 470, y = 275)
+    Ammonium_sulphateLF.insert('end', t9)
+    Ammonium_sulphateLF.config(state='readonly')
+    Ammonium_sulphateLF.bind("<Button-3>",do_popup)
+
+    Sodium_MolyLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Sodium_MolyLF.place(x = 470, y = 300)
+    Sodium_MolyLF.insert('end', t10)
+    Sodium_MolyLF.config(state='readonly')
+    Sodium_MolyLF.bind("<Button-3>",do_popup)
+
+    Mn_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Mn_chellateLF.place(x = 470, y = 325)
+    Mn_chellateLF.insert('end', t11)
+    Mn_chellateLF.config(state='readonly')
+    Mn_chellateLF.bind("<Button-3>",do_popup)
+
+    Zn_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Zn_chellateLF.place(x = 470, y = 350)
+    Zn_chellateLF.insert('end', t12)
+    Zn_chellateLF.config(state='readonly')
+    Zn_chellateLF.bind("<Button-3>",do_popup)
+
+    Cu_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Cu_chellateLF.place(x = 470, y = 375)
+    Cu_chellateLF.insert('end', t13)
+    Cu_chellateLF.config(state='readonly')
+    Cu_chellateLF.bind("<Button-3>",do_popup)
+
+    Nitric_acidLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Nitric_acidLF.place(x = 470, y = 400)
+    Nitric_acidLF.insert('end', t14)
+    Nitric_acidLF.config(state='readonly')
+    Nitric_acidLF.bind("<Button-3>",do_popup)
+
+    Phosphoric_acidLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    Phosphoric_acidLF.place(x = 470, y = 425)
+    Phosphoric_acidLF.insert('end', t15)
+    Phosphoric_acidLF.config(state='readonly')
+    Phosphoric_acidLF.bind("<Button-3>",do_popup)
+
+    FerromaxLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                        font=("Times",13))
+    FerromaxLF.place(x = 470, y = 450)
+    FerromaxLF.insert('end', t17)
+    FerromaxLF.config(state='readonly')
+    FerromaxLF.bind("<Button-3>",do_popup)
+    if t19 == 0:
+        pass
+
+    else:
+        newFertLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
+                font=("Times",13))
+        newFertLF.place(x = 470, y = 475)
+        newFertLF.insert('end', t19)
+        newFertLF.config(state='readonly')
+        newFertLF.bind("<Button-3>",do_popup)
+
+
+
+
+    #Uv recycle logic
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textNitr = "Nitrate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textNitr in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem1 = round(float(new_list[-1][1+pos+len(textNitr):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textPhos = "Phosphorus"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textPhos in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem2 = round(float(new_list[-1][1+pos+len(textPhos):])*uv1,2)
+
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textPotas = "Potassium"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textPotas in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem3 = round(float(new_list[-1][1+pos+len(textPotas):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textCalc = "Calcium"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textCalc in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem4 = round(float(new_list[-1][1+pos+len(textCalc):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textMagnes = "Magnesium"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textMagnes in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem5 = round(float(new_list[-1][1+pos+len(textMagnes):])*uv1,2)
+
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textSulph = "Sulphur"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textSulph in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem6 = round(float(new_list[-1][1+pos+len(textSulph):])*uv1,2)
+
+        
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textIron = "Iron"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textIron in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem7 = round(float(new_list[-1][1+pos+len(textIron):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textMangan = "Manganese"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textMangan in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem8 = round(float(new_list[-1][1+pos+len(textMangan):])*uv1,2)
+
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textCopper = "Copper"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textCopper in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem9 = round(float(new_list[-1][1+pos+len(textCopper):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textBoron = "Boron"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textBoron in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem10 = round(float(new_list[-1][1+pos+len(textBoron):])*uv1,2)
+
+
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textZinc = "Zinc"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textZinc in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem11 = round(float(new_list[-1][1+pos+len(textZinc):])*uv1,2)
+
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textMolyb = "Molybdenum"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textMolyb in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem12 = round(float(new_list[-1][1+pos+len(textMolyb):])*uv1,2)
+
+
+    with open ('Recycle uv DB.txt', 'rt') as file_read:
+        textAmmon = "Ammonium"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textAmmon in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        elem13 = round(float(new_list[-1][1+pos+len(textAmmon):])*uv1,2)
+        
+    #Dictionary map
+    
+    CalciumS = []
+    Calcium_Nitrate = {'Ca':19, 'No3':15.5, 'N-NH4':1.1}
+    for key, value in Calcium_Nitrate.items():
+        if key == 'Ca':
+            data1 = "4.", key, ':', round(value * gm1 /100+elem4,2)
+            sdata1 = '4. Ca: ' + str(round(value * gm1 /100,2))
+            for i in data1:
+                CalciumS.append(i)
+                CalciumL.insert('end', data1)
+                CalciumL.config(state='readonly')
+        elif key == 'No3':
+            data2 = (value * gm1 /100)
+
+        elif key == 'N-NH4':
+            data3 = value * gm1 /100
+
+
+    NitrateS = []
+    Potassium_Nitrate = {'K':38, 'No3':13}
+    for key, value in Potassium_Nitrate.items():
+        if key == 'No3':
+            data4 = (value * gm2 /100)
+
+        elif key == 'K':
+            data5 = value * gm2 /100
+        
+    MagnesiumS = []
+    Magnesium_Nitrate = { 'No3':11, 'Mg':9.5}
+    for key, value in Magnesium_Nitrate.items():
+        if key == 'Mg':
+            data6 = value * gm3 /100
+
+        elif key == 'No3':
+            data7 = (value * gm3 /100)
+
+    FerillineS = []
+    Ferilline = {'Fe':6}
+    for key, value in Ferilline.items():
+        if key == 'Fe':
+            data10 = value * gm4 /100
+
+    Ferromax = {'Fe':6}
+    for key, value in Ferromax.items():
+        if key == 'Fe':
+            data42 = (value * gm16 /100)
+            data43 = round((data10 + data42+elem7),2)
+            data44 = "7.", key, ':', data43
+            sdata2 = '7. Fe: ' + str(data43)
+            for i in data44:
+                FerillineS.append(i)
+                FerillineL.insert('end', data44)
+                FerillineL.config(state='readonly')
+        
+    BoraxS = []    
+    Borax = {'B':11}
+    for key, value in Borax.items():
+        data11 = "10.", key, ':', round(value * gm5 /100+elem10,2)
+        sdata3 = '10. B: ' + str(round(value * gm5 /100,2))
+        for i in data11:
+                BoraxS.append(i)
+                BoraxL.insert('end', data11)
+                BoraxL.config(state='readonly')
+        
+    sulphateS = []    
+    Magnesium_sulphate = {'S':14,'Mg':9.1}
+    for key, value in Magnesium_sulphate.items():
+        if key == 'S':
+            data12 = value * gm6 /100
+        elif key == 'Mg':
+            data13 = (value * gm6 /100)
+            data14 = round((data13 + data6+elem5),2)
+            data15 = "5.", key, ':', data14
+            sdata4 = '5. Mg: ' + str(data14)
+            for i in data15:
+                MagnesiumS.append(i)
+                MagnesiumL.insert('end', data15)
+                MagnesiumL.config(state='readonly')
+
+    phosphateS = []    
+    Mono_p_phosphate = {'K':28, 'P':22.5}
+    for key, value in Mono_p_phosphate.items():
+        if key == 'P':
+            data16 = value * gm7 /100
+        elif key == 'K':
+            data17 = (value * gm7 /100)
+
+    PotassiumS = []    
+    Potassium_sulphate = {'K':43, 'S':18}
+    for key, value in Potassium_sulphate.items():
+        if key == 'S':
+            data18 = value * gm8 /100
+        elif key == 'K':
+            data19 = (value * gm8 /100)
+            data20 = round((data5 + data17 + data19+elem3),2)
+            data21 = "3.", key, ':', data20
+            sdata5 = '3. K: ' + str(data20)
+            for i in data21:
+                PotassiumS.append(i)
+                PotassiumL.insert('end', data21)
+                PotassiumL.config(state='readonly')
+                
+    AmmoniumS = []
+    Ammonium_sulphate = {'S':24, 'N-NH4':21}
+    for key, value in Ammonium_sulphate.items():
+        if key == 'S':
+            data22 = value * gm9 /100
+            data23 = round((data12 + data22 + data18+elem6),2)
+            data24 = "6.", key, ':', data23
+            sdata6 = '6. S: ' + str(data23)
+            for i in data24:
+                sulphateS.append(i)
+                sulphateL.insert('end', data24)
+                sulphateL.config(state='readonly')
+        elif key == 'N-NH4':
+            data25 = value * gm9 /100
+            data26 = round((data3+elem13),2)
+            data27 = "13.", key, ':', data26
+            sdata7 = '13. N-NH4: ' + str(data26)
+            for i in data27:
+                AmmoniumS.append(i)
+                AmmoniumL.insert('end', data27)
+                AmmoniumL.config(state='readonly')
+
+    Sodium_MolyS = []    
+    Sodium_Moly = {'Mo':39}
+    for key, value in Sodium_Moly.items():
+        data28 = "12.", key, ':', round((value*gm10/100+elem12),2)
+        sdata8 = '12. Mo: ' + str(round(value*gm10/100,2))
+        for i in data28:
+            Sodium_MolyS.append(i)
+            Sodium_MolyL.insert('end', data28)
+            Sodium_MolyL.config(state='readonly')
+
+    Mn_chellateS = []    
+    Mn_chellate = {'Mn':13}
+    for key, value in Mn_chellate.items():
+        data29 = "8.", key, ':', round(value * gm11 /100+elem8,2)
+        sdata9 = '8. Mn: ' + str(round(value * gm11 /100,2))
+        for i in data29:
+            Mn_chellateS.append(i)
+            Mn_chellateL.insert('end', data29)
+            Mn_chellateL.config(state='readonly')
+
+
+    Cu_chellateS = []    
+    Cu_chellate = {'Cu':14}
+    for key, value in Cu_chellate.items():
+        data30 = "9.", key, ':', round((value * gm13 /100+elem9),2)
+        sdata10 = '9. Cu: ' + str(round(value * gm13 /100,2))
+        for i in data30:
+            Cu_chellateS.append(i)
+            Cu_chellateL.insert('end', data30)
+            Cu_chellateL.config(state='readonly')
+
+    Zn_chellateS = []    
+    Zn_chellate = {'Zn':15}
+    for key, value in Zn_chellate.items():
+        data31 = "11.", key, ':', round(value * gm12 /100+elem11,2)
+        sdata11 = '11. Zn: ' + str(round(value * gm12 /100,2))
+        for i in data31:
+            Zn_chellateS.append(i)
+            Zn_chellateL.insert('end', data31)
+            Zn_chellateL.config(state='readonly')
+    
+    Nitric_acid = {'No3':0}
+    for key, value in Nitric_acid.items():
+        if key == 'No3':
+            data32 = (value * gm14 /100)
+            data33 = round((data2 + data4 + data7+ data32+data25+elem1),2)
+            data34 = "1.", key, ':', data33
+            sdata12 = '1. No3: ' + str(data33)
+            for i in data34:
+                NitrateS.append(i)
+                NitrateL.insert('end', data34)
+                NitrateL.config(state='readonly')
+                
+                
+    Phosphoric_acid = {'P':31.608}
+    for key, value in Phosphoric_acid.items():
+        if key == 'P':
+            data35 = value * gm15 /100
+            data36 = round((data16 + data35+elem2),2)
+            data37 = "2.", key, ':', data36
+            sdata13 = '2. P: ' + str(data36)
+            for i in data37:
+                phosphateS.append(i)
+                phosphateL.insert('end', data37)
+                phosphateL.config(state='readonly')
+                
+
+    Nitric_acidS = []                    
+    pH = {'pH':5.5}
+    for key, value in pH.items():
+        data38 = value
+        data39 = "15.", key, ':', data38
+        sdata14 = '15. pH: ' + str(data38)
+        for i in data39:
+            Nitric_acidS.append(i)
+            pHL.insert('end', data39)
+            pHL.config(state='readonly')
+
+            
+    Phosphoric_acidS = []
+    EC = {'EC':1.2}
+    for key, value in EC.items():
+        data40 = value
+        data41 = "14.", key, ':', data40
+        sdata15 = '14. EC: ' + str(data40)
+        for i in data41:
+            Phosphoric_acidS.append(i)
+            ECL.insert('end', data41)
+            ECL.config(state='readonly')
+            
+    #cost logic
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textcn = "Calcium Nitrate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textcn in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost1 = round(float(new_list[-1][1+pos+len(textcn):])*t1,2)
+        Calcium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
+        Calcium_NitrateLFC.place(x = 620, y = 75)
+        Calcium_NitrateLFC.insert('end', cost1)
+        Calcium_NitrateLFC.config(state='readonly')
+        Calcium_NitrateLFC.bind("<Button-3>",do_popup)
+
+        Fertcost =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=12,justify="center",
+                        bg='skyblue',borderwidth=1, fg='black',font=("Times",13,"bold"))
+        Fertcost.place(x = 620, y = 45)
+        Fertcost.insert('end', 'Cost $')
+        Fertcost.config(state='readonly')
+        Fertcost.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textpn = "Potassium Nitrate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textpn in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost2 = round(float(new_list[-1][1+pos+len(textpn):])*t2,2)
+        Potassium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Potassium_NitrateLFC.place(x = 620, y = 100)
+        Potassium_NitrateLFC.insert('end', cost2)
+        Potassium_NitrateLFC.config(state='readonly')
+        Potassium_NitrateLFC.bind("<Button-3>",do_popup)
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textmgn = "Magnesium Nitrate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textmgn in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost3 = round(float(new_list[-1][1+pos+len(textmgn):])*t3,2)
+        Magnesium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
+        Magnesium_NitrateLFC.place(x = 620, y = 125)
+        Magnesium_NitrateLFC.insert('end', cost3)
+        Magnesium_NitrateLFC.config(state='readonly')
+        Magnesium_NitrateLFC.bind("<Button-3>",do_popup)
+
+    
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textferi = "Ferilline"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textferi in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost4 = round(float(new_list[-1][1+pos+len(textferi):])*t4,2)
+        FerillineLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        FerillineLFC.place(x = 620, y = 150)
+        FerillineLFC.insert('end', cost4)
+        FerillineLFC.config(state='readonly')
+        FerillineLFC.bind("<Button-3>",do_popup)
+
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textbor = "Borax"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textbor in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost5 = round(float(new_list[-1][1+pos+len(textbor):])*t5,2)
+        BoraxLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        BoraxLFC.place(x = 620, y = 175)
+        BoraxLFC.insert('end', cost5)
+        BoraxLFC.config(state='readonly')
+        BoraxLFC.bind("<Button-3>",do_popup)
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textmgs = "Magnesium Sulphate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textmgs in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost6 = round(float(new_list[-1][1+pos+len(textmgs):])*t6,2)
+        Magnesium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
+        Magnesium_sulphateLFC.place(x = 620, y = 200)
+        Magnesium_sulphateLFC.insert('end', cost6)
+        Magnesium_sulphateLFC.config(state='readonly')
+        Magnesium_sulphateLFC.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textmonop = "Mono p phosphate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textmonop in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost7 = round(float(new_list[-1][1+pos+len(textmonop):])*t7,2)
+        Mono_p_phosphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Mono_p_phosphateLFC.place(x = 620, y = 225)
+        Mono_p_phosphateLFC.insert('end', cost7)
+        Mono_p_phosphateLFC.config(state='readonly')
+        Mono_p_phosphateLFC.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textps = "Potassium Sulphate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textps in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost8 = round(float(new_list[-1][1+pos+len(textps):])*t8,2)
+        Potassium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Potassium_sulphateLFC.place(x = 620, y = 250)
+        Potassium_sulphateLFC.insert('end', cost8)
+        Potassium_sulphateLFC.config(state='readonly')
+        Potassium_sulphateLFC.bind("<Button-3>",do_popup)
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textamns = "Ammonium Sulphate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textamns in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost9 = round(float(new_list[-1][1+pos+len(textamns):])*t9,2)
+        Ammonium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
+        Ammonium_sulphateLFC.place(x = 620, y = 275)
+        Ammonium_sulphateLFC.insert('end', cost9)
+        Ammonium_sulphateLFC.config(state='readonly')
+        Ammonium_sulphateLFC.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textsdml = "Sodium Molybdate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textsdml in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost10 = round(float(new_list[-1][1+pos+len(textsdml):])*t10,2)
+        Sodium_MolyLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Sodium_MolyLFC.place(x = 620, y = 300)
+        Sodium_MolyLFC.insert('end', cost10)
+        Sodium_MolyLFC.config(state='readonly')
+        Sodium_MolyLFC.bind("<Button-3>",do_popup)
+
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textmnc = "Mn chellate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textmnc in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost11 = round(float(new_list[-1][1+pos+len(textmnc):])*t11,2)
+        Mn_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Mn_chellateLFC.place(x = 620, y = 325)
+        Mn_chellateLFC.insert('end', cost11)
+        Mn_chellateLFC.config(state='readonly')
+        Mn_chellateLFC.bind("<Button-3>",do_popup)
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textznc = "Zn chellate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textznc in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost12 = round(float(new_list[-1][1+pos+len(textznc):])*t12,2)
+        Zn_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
+        Zn_chellateLFC.place(x = 620, y = 350)
+        Zn_chellateLFC.insert('end', cost12)
+        Zn_chellateLFC.config(state='readonly')
+        Zn_chellateLFC.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textcuc = "Cu chellate"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textcuc in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost13 = round(float(new_list[-1][1+pos+len(textcuc):])*t13,2)
+        Cu_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
+        Cu_chellateLFC.place(x = 620, y = 375)
+        Cu_chellateLFC.insert('end', cost13)
+        Cu_chellateLFC.config(state='readonly')
+        Cu_chellateLFC.bind("<Button-3>",do_popup)
+
+
+    
+    with open ('priceDB.txt', 'rt') as file_read:
+        textnitrca = "Nitric acid"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textnitrca in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost14 = round(float(new_list[-1][1+pos+len(textnitrca):])*t14,2)
+        Nitric_acidLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
+        Nitric_acidLFC.place(x = 620, y = 400)
+        Nitric_acidLFC.insert('end', cost14)
+        Nitric_acidLFC.config(state='readonly')
+        Nitric_acidLFC.bind("<Button-3>",do_popup)
+
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textphosa = "Phosphoric acid"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textphosa in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost15 = round(float(new_list[-1][1+pos+len(textphosa):])*t15,2)
+        Phosphoric_acidLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                 width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))                    
+        Phosphoric_acidLFC.place(x = 620, y = 425)
+        Phosphoric_acidLFC.insert('end', cost15)
+        Phosphoric_acidLFC.config(state='readonly')
+        Phosphoric_acidLFC.bind("<Button-3>",do_popup)
+
+    with open ('priceDB.txt', 'rt') as file_read:
+        textfermx = "Ferromax"
+        lines = file_read.readlines()
+        new_list = []
+        idx = 0
+        for line in lines:
+                if textfermx in line:
+                    if "-" in line:
+                        pos = line.rfind("-")
+                    new_list.insert(idx, line)
+                    idx += 1
+        file_read.close()
+        lineLen = len(new_list)
+        cost16 = round(float(new_list[-1][1+pos+len(textfermx):])*t17,2)
+        FerromaxLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                   width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
+        FerromaxLFC.place(x = 620, y = 450)
+        FerromaxLFC.insert('end', cost16)
+        FerromaxLFC.config(state='readonly')
+        FerromaxLFC.bind("<Button-3>",do_popup)
     try:
-        t1=float(Calcium_NitrateE.get())
-        t2=float(Potassium_NitrateE.get())
-        t3=float(Magnesium_NitrateE.get())
-        t4=float(FerillineE.get())
-        t5=float(BoraxE.get())
-        t6=float(Magnesium_sulphateE.get())
-        t7=float(Mono_p_phosphateE.get())
-        t8=float(Potassium_sulphateE.get())
-        t9=float(Ammonium_sulphateE.get())
-        t10=float(Sodium_MolyE.get())
-        t11=float(Mn_chellateE.get())
-        t12=float(Zn_chellateE.get())
-        t13=float(Cu_chellateE.get())
-        t14=float(Nitric_acidE.get())
-        t15=float(Phosphoric_acidE.get())
-        t16=float(Water_cubicME.get())
-        t17=float(FerromaxE.get())
-        t18=float(Uv_percentE.get())
-        t19=float(newfertE.get())
-        t20=str(ghE.get())
-        
-        # Logic ppm
-
-        #Fertilizers in grams
-
-        Convert_to_grams = 1000
-        g1 = t1 * Convert_to_grams
-        g2 = t2 * Convert_to_grams
-        g3 = t3 * Convert_to_grams
-        g4 = t4 * Convert_to_grams
-        g5 = t5 * Convert_to_grams
-        g6 = t6 * Convert_to_grams
-        g7 = t7 * Convert_to_grams
-        g8 = t8 * Convert_to_grams
-        g9 = t9 * Convert_to_grams
-        g10 = t10 * Convert_to_grams
-        g11 = t11 * Convert_to_grams
-        g12 = t12 * Convert_to_grams
-        g13 = t13 * Convert_to_grams
-        g14 = t14 * Convert_to_grams
-        g15 = t15 * Convert_to_grams
-        g16 = t17 * Convert_to_grams
-        g17 = t19 * Convert_to_grams
-
-        #Fertilizers grams per m3
-
-        gm1 = g1/t16
-        gm2 = g2/t16
-        gm3 = g3/t16
-        gm4 = g4/t16
-        gm5 = g5/t16
-        gm6 = g6/t16
-        gm7 = g7/t16
-        gm8 = g8/t16
-        gm9 = g9/t16
-        gm10 = g10/t16
-        gm11 = g11/t16
-        gm12 = g12/t16
-        gm13 = g13/t16
-        gm14 = g14/t16
-        gm15 = g15/t16
-        gm16 = g16/t16
-        gm17 = g17/t16
-
-        #Uv recycle %
-        
-        uv1 = t18/100
-        #ppm calculation label
-
-        NitrateL=Entry(frame4,relief='flat',bd=0,takefocus=0,width=20,highlightthickness=0,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        NitrateL.place(x = 2, y = 75)
-        NitrateL.bind("<Button-3>",do_popup)
-        separator = ttk.Separator(frame4, orient='vertical')
-        separator.place(x=250, y=40, relwidth=0, relheight=1)
-
-        phosphateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        phosphateL.place(x = 2, y = 100)
-        phosphateL.bind("<Button-3>",do_popup)
-
-        PotassiumL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        PotassiumL.place(x = 2, y = 125)
-        PotassiumL.bind("<Button-3>",do_popup)
-        
-        CalciumL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        CalciumL.place(x = 2, y = 150)
-        CalciumL.bind("<Button-3>",do_popup)
-
-        MagnesiumL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        MagnesiumL.place(x = 2, y = 175)
-        MagnesiumL.bind("<Button-3>",do_popup)
-
-
-        sulphateL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        sulphateL.place(x = 2, y = 200)
-        sulphateL.bind("<Button-3>",do_popup)
-
-        FerillineL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        FerillineL.place(x = 2, y = 225)
-        FerillineL.bind("<Button-3>",do_popup)
-
-
-        Mn_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Mn_chellateL.place(x = 2, y = 250)
-        Mn_chellateL.bind("<Button-3>",do_popup)
-
-
-        Cu_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Cu_chellateL.place(x = 2, y = 275)
-        Cu_chellateL.bind("<Button-3>",do_popup)
-
-
-        BoraxL=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        BoraxL.place(x = 2, y = 300)
-        BoraxL.bind("<Button-3>",do_popup)
-
-
-        Zn_chellateL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Zn_chellateL.place(x = 2, y = 325)
-        Zn_chellateL.bind("<Button-3>",do_popup)
-
-        
-        Sodium_MolyL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Sodium_MolyL.place(x = 2, y = 350)
-        Sodium_MolyL.bind("<Button-3>",do_popup)
-
-
-        AmmoniumL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        AmmoniumL.place(x = 2, y = 375)
-        AmmoniumL.bind("<Button-3>",do_popup)
-
-
-        ECL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        ECL.place(x = 2, y = 400)
-        ECL.bind("<Button-3>",do_popup)
-
-        pHL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        pHL.place(x = 2, y = 425)
-        pHL.bind("<Button-3>",do_popup)
-
         if t19 == 0:
-            pass
+            with open ('priceDB.txt', 'rt') as file_read:
+                textnewt = var1.get()
+                lines = file_read.readlines()
+                new_list = []
+                idx = 0
+                for line in lines:
+                        if textnewt in line:
+                            if "-" in line:
+                                pos = line.rfind("-")
+                            new_list.insert(idx, line)
+                            idx += 1
+                file_read.close()
+                lineLen = len(new_list)
+                cost17 = round(float(new_list[-1][1+pos+len(textnewt):])*t19,2)
         else:
-            newFertL =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=20,bg='white',borderwidth=1, fg='black',
-                                font=("Times",13))
-            newFertL.place(x = 2, y = 450)
-            newFertL.config(state='readonly')
-            newFertL.bind("<Button-3>",do_popup)
+            with open ('priceDB.txt', 'rt') as file_read:
+                textnewt = var1.get()
+                lines = file_read.readlines()
+                new_list = []
+                idx = 0
+                for line in lines:
+                        if textnewt in line:
+                            if "-" in line:
+                                pos = line.rfind("-")
+                            new_list.insert(idx, line)
+                            idx += 1
+                file_read.close()
+                lineLen = len(new_list)
+                cost17 = round(float(new_list[-1][1+pos+len(textnewt):])*t19,2)
+                newfertLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                           width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
+                newfertLFC.place(x = 620, y = 475)
+                newfertLFC.insert('end', cost17)
+                newfertLFC.config(state='readonly')
+                newfertLFC.bind("<Button-3>",do_popup)    
 
+        sumcostf = round(float(cost1+cost2+cost3+cost4+cost5+cost6+cost7+cost8+cost9+cost10+cost11\
+                       +cost12+cost13+cost14+cost15+cost16+cost17),2)
         
-
-        #fertilizers entered
-
-        Calcium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Calcium_NitrateLF.place(x = 470, y = 75)
-        Calcium_NitrateLF.insert('end', t1)
-        Calcium_NitrateLF.config(state='readonly')
-        Calcium_NitrateLF.bind("<Button-3>",do_popup)
-        
-        Potassium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Potassium_NitrateLF.place(x = 470, y = 100)
-        Potassium_NitrateLF.insert('end', t2)
-        Potassium_NitrateLF.config(state='readonly')
-        Potassium_NitrateLF.bind("<Button-3>",do_popup)
-
-        Magnesium_NitrateLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Magnesium_NitrateLF.place(x = 470, y = 125)
-        Magnesium_NitrateLF.insert('end', t3)
-        Magnesium_NitrateLF.config(state='readonly')
-        Magnesium_NitrateLF.bind("<Button-3>",do_popup)
-
-        FerillineLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        FerillineLF.place(x = 470, y = 150)
-        FerillineLF.insert('end', t4)
-        FerillineLF.config(state='readonly')
-        FerillineLF.bind("<Button-3>",do_popup)
-        
-
-        BoraxLF=Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        BoraxLF.place(x = 470, y = 175)
-        BoraxLF.insert('end', t5)
-        BoraxLF.config(state='readonly')
-        BoraxLF.bind("<Button-3>",do_popup)
-
-        Magnesium_sulphateLF=Entry(frame4,relief='flat',bd=0,justify="right",takefocus=0,highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Magnesium_sulphateLF.place(x = 470, y = 200)
-        Magnesium_sulphateLF.insert('end', t6)
-        Magnesium_sulphateLF.config(state='readonly')
-        Magnesium_sulphateLF.bind("<Button-3>",do_popup)
-
-        Mono_p_phosphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times", 13))
-        Mono_p_phosphateLF.place(x = 470, y = 225)
-        Mono_p_phosphateLF.insert('end', t7)
-        Mono_p_phosphateLF.config(state='readonly')
-        Mono_p_phosphateLF.bind("<Button-3>",do_popup)
-        
-        Potassium_sulphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Potassium_sulphateLF.place(x = 470, y = 250)
-        Potassium_sulphateLF.insert('end', t8)
-        Potassium_sulphateLF.config(state='readonly')
-        Potassium_sulphateLF.bind("<Button-3>",do_popup)
-
-        Ammonium_sulphateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Ammonium_sulphateLF.place(x = 470, y = 275)
-        Ammonium_sulphateLF.insert('end', t9)
-        Ammonium_sulphateLF.config(state='readonly')
-        Ammonium_sulphateLF.bind("<Button-3>",do_popup)
-
-        Sodium_MolyLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Sodium_MolyLF.place(x = 470, y = 300)
-        Sodium_MolyLF.insert('end', t10)
-        Sodium_MolyLF.config(state='readonly')
-        Sodium_MolyLF.bind("<Button-3>",do_popup)
-
-        Mn_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Mn_chellateLF.place(x = 470, y = 325)
-        Mn_chellateLF.insert('end', t11)
-        Mn_chellateLF.config(state='readonly')
-        Mn_chellateLF.bind("<Button-3>",do_popup)
-
-        Zn_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Zn_chellateLF.place(x = 470, y = 350)
-        Zn_chellateLF.insert('end', t12)
-        Zn_chellateLF.config(state='readonly')
-        Zn_chellateLF.bind("<Button-3>",do_popup)
-
-        Cu_chellateLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Cu_chellateLF.place(x = 470, y = 375)
-        Cu_chellateLF.insert('end', t13)
-        Cu_chellateLF.config(state='readonly')
-        Cu_chellateLF.bind("<Button-3>",do_popup)
-
-        Nitric_acidLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Nitric_acidLF.place(x = 470, y = 400)
-        Nitric_acidLF.insert('end', t14)
-        Nitric_acidLF.config(state='readonly')
-        Nitric_acidLF.bind("<Button-3>",do_popup)
-
-        Phosphoric_acidLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        Phosphoric_acidLF.place(x = 470, y = 425)
-        Phosphoric_acidLF.insert('end', t15)
-        Phosphoric_acidLF.config(state='readonly')
-        Phosphoric_acidLF.bind("<Button-3>",do_popup)
-
-        FerromaxLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                            font=("Times",13))
-        FerromaxLF.place(x = 470, y = 450)
-        FerromaxLF.insert('end', t17)
-        FerromaxLF.config(state='readonly')
-        FerromaxLF.bind("<Button-3>",do_popup)
+        sumcost = "${:,.2f}".format(round(float(cost1+cost2+cost3+cost4+cost5+cost6+cost7+cost8+cost9+cost10+cost11\
+                       +cost12+cost13+cost14+cost15+cost16+cost17),2))
         if t19 == 0:
-            pass
+            TotalcostLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                       width=12,bg='skyblue',borderwidth=1, fg='black',justify="right",font=("Times",13, 'bold'))      
+            TotalcostLFC.place(x = 620, y = 480)
+            TotalcostLFC.insert('end', str(sumcost))
+            TotalcostLFC.config(state='readonly')
+            TotalcostLFC.bind("<Button-3>",do_popup)
 
         else:
-            newFertLF =Entry(frame4,relief='flat',bd=0,takefocus=0,justify="right",highlightthickness=0,width=12,bg='skyblue',borderwidth=1, fg='black',
-                    font=("Times",13))
-            newFertLF.place(x = 470, y = 475)
-            newFertLF.insert('end', t19)
-            newFertLF.config(state='readonly')
-            newFertLF.bind("<Button-3>",do_popup)
-
-
-
-
-        #Uv recycle logic
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textNitr = "Nitrate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textNitr in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem1 = round(float(new_list[-1][1+pos+len(textNitr):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textPhos = "Phosphorus"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textPhos in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem2 = round(float(new_list[-1][1+pos+len(textPhos):])*uv1,2)
-
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textPotas = "Potassium"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textPotas in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem3 = round(float(new_list[-1][1+pos+len(textPotas):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textCalc = "Calcium"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textCalc in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem4 = round(float(new_list[-1][1+pos+len(textCalc):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textMagnes = "Magnesium"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textMagnes in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem5 = round(float(new_list[-1][1+pos+len(textMagnes):])*uv1,2)
-
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textSulph = "Sulphur"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textSulph in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem6 = round(float(new_list[-1][1+pos+len(textSulph):])*uv1,2)
-
-            
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textIron = "Iron"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textIron in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem7 = round(float(new_list[-1][1+pos+len(textIron):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textMangan = "Manganese"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textMangan in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem8 = round(float(new_list[-1][1+pos+len(textMangan):])*uv1,2)
-
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textCopper = "Copper"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textCopper in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem9 = round(float(new_list[-1][1+pos+len(textCopper):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textBoron = "Boron"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textBoron in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem10 = round(float(new_list[-1][1+pos+len(textBoron):])*uv1,2)
-
-
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textZinc = "Zinc"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textZinc in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem11 = round(float(new_list[-1][1+pos+len(textZinc):])*uv1,2)
-
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textMolyb = "Molybdenum"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textMolyb in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem12 = round(float(new_list[-1][1+pos+len(textMolyb):])*uv1,2)
-
-
-        with open ('Recycle uv DB.txt', 'rt') as file_read:
-            textAmmon = "Ammonium"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textAmmon in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            elem13 = round(float(new_list[-1][1+pos+len(textAmmon):])*uv1,2)
-            
-        #Dictionary map
-        
-        CalciumS = []
-        Calcium_Nitrate = {'Ca':19, 'No3':15.5, 'N-NH4':1.1}
-        for key, value in Calcium_Nitrate.items():
-            if key == 'Ca':
-                data1 = "4.", key, ':', round(value * gm1 /100+elem4,2)
-                sdata1 = '4. Ca: ' + str(round(value * gm1 /100,2))
-                for i in data1:
-                    CalciumS.append(i)
-                    CalciumL.insert('end', data1)
-                    CalciumL.config(state='readonly')
-            elif key == 'No3':
-                data2 = (value * gm1 /100)
-
-            elif key == 'N-NH4':
-                data3 = value * gm1 /100
-
-
-        NitrateS = []
-        Potassium_Nitrate = {'K':38, 'No3':13}
-        for key, value in Potassium_Nitrate.items():
-            if key == 'No3':
-                data4 = (value * gm2 /100)
-
-            elif key == 'K':
-                data5 = value * gm2 /100
-            
-        MagnesiumS = []
-        Magnesium_Nitrate = { 'No3':11, 'Mg':9.5}
-        for key, value in Magnesium_Nitrate.items():
-            if key == 'Mg':
-                data6 = value * gm3 /100
-
-            elif key == 'No3':
-                data7 = (value * gm3 /100)
-
-        FerillineS = []
-        Ferilline = {'Fe':6}
-        for key, value in Ferilline.items():
-            if key == 'Fe':
-                data10 = value * gm4 /100
-
-        Ferromax = {'Fe':6}
-        for key, value in Ferromax.items():
-            if key == 'Fe':
-                data42 = (value * gm16 /100)
-                data43 = round((data10 + data42+elem7),2)
-                data44 = "7.", key, ':', data43
-                sdata2 = '7. Fe: ' + str(data43)
-                for i in data44:
-                    FerillineS.append(i)
-                    FerillineL.insert('end', data44)
-                    FerillineL.config(state='readonly')
-            
-        BoraxS = []    
-        Borax = {'B':11}
-        for key, value in Borax.items():
-            data11 = "10.", key, ':', round(value * gm5 /100+elem10,2)
-            sdata3 = '10. B: ' + str(round(value * gm5 /100,2))
-            for i in data11:
-                    BoraxS.append(i)
-                    BoraxL.insert('end', data11)
-                    BoraxL.config(state='readonly')
-            
-        sulphateS = []    
-        Magnesium_sulphate = {'S':14,'Mg':9.1}
-        for key, value in Magnesium_sulphate.items():
-            if key == 'S':
-                data12 = value * gm6 /100
-            elif key == 'Mg':
-                data13 = (value * gm6 /100)
-                data14 = round((data13 + data6+elem5),2)
-                data15 = "5.", key, ':', data14
-                sdata4 = '5. Mg: ' + str(data14)
-                for i in data15:
-                    MagnesiumS.append(i)
-                    MagnesiumL.insert('end', data15)
-                    MagnesiumL.config(state='readonly')
-
-        phosphateS = []    
-        Mono_p_phosphate = {'K':28, 'P':22.5}
-        for key, value in Mono_p_phosphate.items():
-            if key == 'P':
-                data16 = value * gm7 /100
-            elif key == 'K':
-                data17 = (value * gm7 /100)
-
-        PotassiumS = []    
-        Potassium_sulphate = {'K':43, 'S':18}
-        for key, value in Potassium_sulphate.items():
-            if key == 'S':
-                data18 = value * gm8 /100
-            elif key == 'K':
-                data19 = (value * gm8 /100)
-                data20 = round((data5 + data17 + data19+elem3),2)
-                data21 = "3.", key, ':', data20
-                sdata5 = '3. K: ' + str(data20)
-                for i in data21:
-                    PotassiumS.append(i)
-                    PotassiumL.insert('end', data21)
-                    PotassiumL.config(state='readonly')
-                    
-        AmmoniumS = []
-        Ammonium_sulphate = {'S':24, 'N-NH4':21}
-        for key, value in Ammonium_sulphate.items():
-            if key == 'S':
-                data22 = value * gm9 /100
-                data23 = round((data12 + data22 + data18+elem6),2)
-                data24 = "6.", key, ':', data23
-                sdata6 = '6. S: ' + str(data23)
-                for i in data24:
-                    sulphateS.append(i)
-                    sulphateL.insert('end', data24)
-                    sulphateL.config(state='readonly')
-            elif key == 'N-NH4':
-                data25 = value * gm9 /100
-                data26 = round((data3+elem13),2)
-                data27 = "13.", key, ':', data26
-                sdata7 = '13. N-NH4: ' + str(data26)
-                for i in data27:
-                    AmmoniumS.append(i)
-                    AmmoniumL.insert('end', data27)
-                    AmmoniumL.config(state='readonly')
-
-        Sodium_MolyS = []    
-        Sodium_Moly = {'Mo':39}
-        for key, value in Sodium_Moly.items():
-            data28 = "12.", key, ':', round((value*gm10/100+elem12),2)
-            sdata8 = '12. Mo: ' + str(round(value*gm10/100,2))
-            for i in data28:
-                Sodium_MolyS.append(i)
-                Sodium_MolyL.insert('end', data28)
-                Sodium_MolyL.config(state='readonly')
-
-        Mn_chellateS = []    
-        Mn_chellate = {'Mn':13}
-        for key, value in Mn_chellate.items():
-            data29 = "8.", key, ':', round(value * gm11 /100+elem8,2)
-            sdata9 = '8. Mn: ' + str(round(value * gm11 /100,2))
-            for i in data29:
-                Mn_chellateS.append(i)
-                Mn_chellateL.insert('end', data29)
-                Mn_chellateL.config(state='readonly')
-
-
-        Cu_chellateS = []    
-        Cu_chellate = {'Cu':14}
-        for key, value in Cu_chellate.items():
-            data30 = "9.", key, ':', round((value * gm13 /100+elem9),2)
-            sdata10 = '9. Cu: ' + str(round(value * gm13 /100,2))
-            for i in data30:
-                Cu_chellateS.append(i)
-                Cu_chellateL.insert('end', data30)
-                Cu_chellateL.config(state='readonly')
-
-        Zn_chellateS = []    
-        Zn_chellate = {'Zn':15}
-        for key, value in Zn_chellate.items():
-            data31 = "11.", key, ':', round(value * gm12 /100+elem11,2)
-            sdata11 = '11. Zn: ' + str(round(value * gm12 /100,2))
-            for i in data31:
-                Zn_chellateS.append(i)
-                Zn_chellateL.insert('end', data31)
-                Zn_chellateL.config(state='readonly')
-        
-        Nitric_acid = {'No3':0}
-        for key, value in Nitric_acid.items():
-            if key == 'No3':
-                data32 = (value * gm14 /100)
-                data33 = round((data2 + data4 + data7+ data32+data25+elem1),2)
-                data34 = "1.", key, ':', data33
-                sdata12 = '1. No3: ' + str(data33)
-                for i in data34:
-                    NitrateS.append(i)
-                    NitrateL.insert('end', data34)
-                    NitrateL.config(state='readonly')
-                    
-                    
-        Phosphoric_acid = {'P':31.608}
-        for key, value in Phosphoric_acid.items():
-            if key == 'P':
-                data35 = value * gm15 /100
-                data36 = round((data16 + data35+elem2),2)
-                data37 = "2.", key, ':', data36
-                sdata13 = '2. P: ' + str(data36)
-                for i in data37:
-                    phosphateS.append(i)
-                    phosphateL.insert('end', data37)
-                    phosphateL.config(state='readonly')
-                    
-
-        Nitric_acidS = []                    
-        pH = {'pH':5.5}
-        for key, value in pH.items():
-            data38 = value
-            data39 = "15.", key, ':', data38
-            sdata14 = '15. pH: ' + str(data38)
-            for i in data39:
-                Nitric_acidS.append(i)
-                pHL.insert('end', data39)
-                pHL.config(state='readonly')
-
-                
-        Phosphoric_acidS = []
-        EC = {'EC':1.2}
-        for key, value in EC.items():
-            data40 = value
-            data41 = "14.", key, ':', data40
-            sdata15 = '14. EC: ' + str(data40)
-            for i in data41:
-                Phosphoric_acidS.append(i)
-                ECL.insert('end', data41)
-                ECL.config(state='readonly')
-                
-        #cost logic
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textcn = "Calcium Nitrate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textcn in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost1 = round(float(new_list[-1][1+pos+len(textcn):])*t1,2)
-            Calcium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
-            Calcium_NitrateLFC.place(x = 620, y = 75)
-            Calcium_NitrateLFC.insert('end', cost1)
-            Calcium_NitrateLFC.config(state='readonly')
-            Calcium_NitrateLFC.bind("<Button-3>",do_popup)
-
-            Fertcost =Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,width=12,justify="center",
-                            bg='skyblue',borderwidth=1, fg='black',font=("Times",13,"bold"))
-            Fertcost.place(x = 620, y = 45)
-            Fertcost.insert('end', 'Cost $')
-            Fertcost.config(state='readonly')
-            Fertcost.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textpn = "Potassium Nitrate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textpn in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost2 = round(float(new_list[-1][1+pos+len(textpn):])*t2,2)
-            Potassium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Potassium_NitrateLFC.place(x = 620, y = 100)
-            Potassium_NitrateLFC.insert('end', cost2)
-            Potassium_NitrateLFC.config(state='readonly')
-            Potassium_NitrateLFC.bind("<Button-3>",do_popup)
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textmgn = "Magnesium Nitrate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textmgn in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost3 = round(float(new_list[-1][1+pos+len(textmgn):])*t3,2)
-            Magnesium_NitrateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
-            Magnesium_NitrateLFC.place(x = 620, y = 125)
-            Magnesium_NitrateLFC.insert('end', cost3)
-            Magnesium_NitrateLFC.config(state='readonly')
-            Magnesium_NitrateLFC.bind("<Button-3>",do_popup)
-
-        
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textferi = "Ferilline"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textferi in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost4 = round(float(new_list[-1][1+pos+len(textferi):])*t4,2)
-            FerillineLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            FerillineLFC.place(x = 620, y = 150)
-            FerillineLFC.insert('end', cost4)
-            FerillineLFC.config(state='readonly')
-            FerillineLFC.bind("<Button-3>",do_popup)
-
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textbor = "Borax"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textbor in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost5 = round(float(new_list[-1][1+pos+len(textbor):])*t5,2)
-            BoraxLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            BoraxLFC.place(x = 620, y = 175)
-            BoraxLFC.insert('end', cost5)
-            BoraxLFC.config(state='readonly')
-            BoraxLFC.bind("<Button-3>",do_popup)
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textmgs = "Magnesium Sulphate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textmgs in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost6 = round(float(new_list[-1][1+pos+len(textmgs):])*t6,2)
-            Magnesium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
-            Magnesium_sulphateLFC.place(x = 620, y = 200)
-            Magnesium_sulphateLFC.insert('end', cost6)
-            Magnesium_sulphateLFC.config(state='readonly')
-            Magnesium_sulphateLFC.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textmonop = "Mono p phosphate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textmonop in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost7 = round(float(new_list[-1][1+pos+len(textmonop):])*t7,2)
-            Mono_p_phosphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Mono_p_phosphateLFC.place(x = 620, y = 225)
-            Mono_p_phosphateLFC.insert('end', cost7)
-            Mono_p_phosphateLFC.config(state='readonly')
-            Mono_p_phosphateLFC.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textps = "Potassium Sulphate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textps in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost8 = round(float(new_list[-1][1+pos+len(textps):])*t8,2)
-            Potassium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Potassium_sulphateLFC.place(x = 620, y = 250)
-            Potassium_sulphateLFC.insert('end', cost8)
-            Potassium_sulphateLFC.config(state='readonly')
-            Potassium_sulphateLFC.bind("<Button-3>",do_popup)
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textamns = "Ammonium Sulphate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textamns in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost9 = round(float(new_list[-1][1+pos+len(textamns):])*t9,2)
-            Ammonium_sulphateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
-            Ammonium_sulphateLFC.place(x = 620, y = 275)
-            Ammonium_sulphateLFC.insert('end', cost9)
-            Ammonium_sulphateLFC.config(state='readonly')
-            Ammonium_sulphateLFC.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textsdml = "Sodium Molybdate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textsdml in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost10 = round(float(new_list[-1][1+pos+len(textsdml):])*t10,2)
-            Sodium_MolyLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Sodium_MolyLFC.place(x = 620, y = 300)
-            Sodium_MolyLFC.insert('end', cost10)
-            Sodium_MolyLFC.config(state='readonly')
-            Sodium_MolyLFC.bind("<Button-3>",do_popup)
-
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textmnc = "Mn chellate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textmnc in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost11 = round(float(new_list[-1][1+pos+len(textmnc):])*t11,2)
-            Mn_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Mn_chellateLFC.place(x = 620, y = 325)
-            Mn_chellateLFC.insert('end', cost11)
-            Mn_chellateLFC.config(state='readonly')
-            Mn_chellateLFC.bind("<Button-3>",do_popup)
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textznc = "Zn chellate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textznc in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost12 = round(float(new_list[-1][1+pos+len(textznc):])*t12,2)
-            Zn_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))                    
-            Zn_chellateLFC.place(x = 620, y = 350)
-            Zn_chellateLFC.insert('end', cost12)
-            Zn_chellateLFC.config(state='readonly')
-            Zn_chellateLFC.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textcuc = "Cu chellate"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textcuc in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost13 = round(float(new_list[-1][1+pos+len(textcuc):])*t13,2)
-            Cu_chellateLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,justify="right",bg='skyblue',borderwidth=1, fg='black',font=("Times",13))      
-            Cu_chellateLFC.place(x = 620, y = 375)
-            Cu_chellateLFC.insert('end', cost13)
-            Cu_chellateLFC.config(state='readonly')
-            Cu_chellateLFC.bind("<Button-3>",do_popup)
-
-
-        
-        with open ('priceDB.txt', 'rt') as file_read:
-            textnitrca = "Nitric acid"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textnitrca in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost14 = round(float(new_list[-1][1+pos+len(textnitrca):])*t14,2)
-            Nitric_acidLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
-            Nitric_acidLFC.place(x = 620, y = 400)
-            Nitric_acidLFC.insert('end', cost14)
-            Nitric_acidLFC.config(state='readonly')
-            Nitric_acidLFC.bind("<Button-3>",do_popup)
-
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textphosa = "Phosphoric acid"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textphosa in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost15 = round(float(new_list[-1][1+pos+len(textphosa):])*t15,2)
-            Phosphoric_acidLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                     width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))                    
-            Phosphoric_acidLFC.place(x = 620, y = 425)
-            Phosphoric_acidLFC.insert('end', cost15)
-            Phosphoric_acidLFC.config(state='readonly')
-            Phosphoric_acidLFC.bind("<Button-3>",do_popup)
-
-        with open ('priceDB.txt', 'rt') as file_read:
-            textfermx = "Ferromax"
-            lines = file_read.readlines()
-            new_list = []
-            idx = 0
-            for line in lines:
-                    if textfermx in line:
-                        if "-" in line:
-                            pos = line.rfind("-")
-                        new_list.insert(idx, line)
-                        idx += 1
-            file_read.close()
-            lineLen = len(new_list)
-            cost16 = round(float(new_list[-1][1+pos+len(textfermx):])*t17,2)
-            FerromaxLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                       width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
-            FerromaxLFC.place(x = 620, y = 450)
-            FerromaxLFC.insert('end', cost16)
-            FerromaxLFC.config(state='readonly')
-            FerromaxLFC.bind("<Button-3>",do_popup)
-        try:
-            if t19 == 0:
-                with open ('priceDB.txt', 'rt') as file_read:
-                    textnewt = var1.get()
-                    lines = file_read.readlines()
-                    new_list = []
-                    idx = 0
-                    for line in lines:
-                            if textnewt in line:
-                                if "-" in line:
-                                    pos = line.rfind("-")
-                                new_list.insert(idx, line)
-                                idx += 1
-                    file_read.close()
-                    lineLen = len(new_list)
-                    cost17 = round(float(new_list[-1][1+pos+len(textnewt):])*t19,2)
-            else:
-                with open ('priceDB.txt', 'rt') as file_read:
-                    textnewt = var1.get()
-                    lines = file_read.readlines()
-                    new_list = []
-                    idx = 0
-                    for line in lines:
-                            if textnewt in line:
-                                if "-" in line:
-                                    pos = line.rfind("-")
-                                new_list.insert(idx, line)
-                                idx += 1
-                    file_read.close()
-                    lineLen = len(new_list)
-                    cost17 = round(float(new_list[-1][1+pos+len(textnewt):])*t19,2)
-                    newfertLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                               width=12,bg='skyblue',borderwidth=1,justify="right", fg='black',font=("Times",13))      
-                    newfertLFC.place(x = 620, y = 475)
-                    newfertLFC.insert('end', cost17)
-                    newfertLFC.config(state='readonly')
-                    newfertLFC.bind("<Button-3>",do_popup)    
-
-            sumcostf = round(float(cost1+cost2+cost3+cost4+cost5+cost6+cost7+cost8+cost9+cost10+cost11\
-                           +cost12+cost13+cost14+cost15+cost16+cost17),2)
-            
-            sumcost = "${:,.2f}".format(round(float(cost1+cost2+cost3+cost4+cost5+cost6+cost7+cost8+cost9+cost10+cost11\
-                           +cost12+cost13+cost14+cost15+cost16+cost17),2))
-            if t19 == 0:
-                TotalcostLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                           width=12,bg='skyblue',borderwidth=1, fg='black',justify="right",font=("Times",13, 'bold'))      
-                TotalcostLFC.place(x = 620, y = 480)
-                TotalcostLFC.insert('end', str(sumcost))
-                TotalcostLFC.config(state='readonly')
-                TotalcostLFC.bind("<Button-3>",do_popup)
-
-            else:
-                TotalcostLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
-                                           width=12,bg='skyblue',borderwidth=1, fg='black',justify="right",font=("Times",13, 'bold'))      
-                TotalcostLFC.place(x = 620, y = 510)
-                TotalcostLFC.insert('end', str(sumcost))
-                TotalcostLFC.config(state='readonly')
-                TotalcostLFC.bind("<Button-3>",do_popup)
-        except:
-            pass
+            TotalcostLFC=Entry(frame4,relief='flat',bd=0,takefocus=0,highlightthickness=0,
+                                       width=12,bg='skyblue',borderwidth=1, fg='black',justify="right",font=("Times",13, 'bold'))      
+            TotalcostLFC.place(x = 620, y = 510)
+            TotalcostLFC.insert('end', str(sumcost))
+            TotalcostLFC.config(state='readonly')
+            TotalcostLFC.bind("<Button-3>",do_popup)
+##        except:
+##            pass
 
         if menu.get() == "HYDRO" and t18 != 0:
             try:
@@ -11026,10 +11008,9 @@ def calendar_view():
     ttk.Button(top, text="ok", command=topdestroy).pack()
 
 
-
 def calpop():
     global window
-    global cal, cal_counter
+    global cal
     global entryd
     global date1
     cwindow = Tk()
@@ -11043,7 +11024,6 @@ def calpop():
     dbutton = Button(cwindow, text = "Get Date", bg='skyblue', fg='black',
                     font=("Times",11,"bold"), activebackground='skyblue',
                      command = lambda: [get_datem(),cwindow.destroy()])
-    
 
     dbutton.bind('<Return>', calpop)
     dbutton.focus_set()
@@ -11052,48 +11032,12 @@ def calpop():
     cwindow.attributes('-topmost', True)
     cwindow.mainloop()
 
-
-
-    
-cal_counter = 0
-def delete_cal():
-    global window
-    global cal, cal_counter
-    global entryd
-    global date1, cwindow
-    
-    if cal_counter > 0 and cal.winfo_exists():
-        cal.pack_forget() # destroys calender
-    cal_counter += 1
-    print(cal_counter)
-
-
-
-
-
-
-
-
-def close_top(top):
-    btn.config(state='normal')
-    top.destroy()
-
-
-def open_help():
-    btn.config(state='disabled')
-    top = Toplevel(root)
-    top.protocol('WM_DELETE_WINDOW', lambda: close_top(top))
-    top.focus_force()
-
-
-
 def get_datem():
     global entryd
     global cal
     global date1
     date1 = cal.get_date()
     entryd.insert('end', date1)
-    
 
 
 var = StringVar()

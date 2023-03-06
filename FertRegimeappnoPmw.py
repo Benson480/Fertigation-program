@@ -23,15 +23,15 @@ from tkinter import *
 import collections
 from collections import Counter
 collections.Callable = collections.abc.Callable
-import Pmw
+#import Pmw
 import time
 from PIL import Image,ImageTk
 root = Tk()
 from tkinter import messagebox
-root.option_readfile('optionDB.txt')
-Pmw.initialise(root)
+#root.option_readfile('optionDB.txt')
+#Pmw.initialise(root)
 root.title("Fertigation ppm app")
-root.iconbitmap(default='myapp.ico')
+#root.iconbitmap(default='myapp.ico')
 from tkinter import simpledialog
 import threading
 import re
@@ -41,12 +41,16 @@ import datetime
 from tkinter import filedialog
 import glob
 from tkPDFViewer import tkPDFViewer as pdf
-from tkinter import ttk
+##from tkinter import ttk
 from tkinter.filedialog import asksaveasfile
-from tkinter import ttk
+##from tkinter import ttk
 import calendar
+
+from babel.dates import format_date, parse_date, get_day_names, get_month_names
+from babel.numbers import *
+
 from tkcalendar import Calendar
-balloon = Pmw.Balloon(root)
+#balloon = Pmw.Balloon(root)
 import numpy
 import pandas as pd
 import io
@@ -67,14 +71,13 @@ from ttkwidgets.autocomplete import AutocompleteEntry
 import sqlite3
 import smtplib
 import tkinterweb
+from tkinterweb import HtmlFrame
 from tkhtmlview import *
 from tkhtmlview import HTMLLabel
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from reportlab.pdfgen.canvas import Canvas as canv
 from tkinterweb import HtmlFrame
 import tkinterweb
-import re
-from tkinterhtml import *
 
 
 ### convert png to ico file
@@ -353,42 +356,26 @@ def login():
         else:
             showMessage("Login Failed!\nWrong Username", type='error', timeout=3500)
     def send_mail():
-        try:
-            global emaile
-            host = "smtp.gmail.com"
-            mmail = 'bensonmwangi101@gmail.com'
-            hmail = emaile.get()
-            reg = re.compile(r'''(
-            (.*)
-            @
-            [a-zA-Z]+
-            [.+_-]
-            [a-zA-Z]+
-
-            )''',re.VERBOSE)
-            find = reg.search(hmail)
-            if find == None:
-                showMessage('invalid email address', type='error', timeout=2000)
-            else:
-                showMessage("Password link has been sent to your email", type='info', timeout=2500)
-            subject = 'Password reset'
-            text = 'password is 1234'
-            server = smtplib.SMTP(host, 587)
-            server.ehlo()
-            server.starttls()
-            # my token to send mail
-            # ....
-            # smtp.pelconsip.aruba.it
-            #password = 'kvsowmndcyjztyrf'
-            password = 'kzfevahqhuhffqfo'
-            #password = 'yprbzdjnlxjdswsg'
-            #password = 'uoazjqkuencmhakg'
-            # errore second factor
-            server.login(mmail, password)
-            server.sendmail(mmail, [hmail], text)
-            server.quit()
-        except:
-            pass
+        global emaile
+        host = "smtp.gmail.com"
+        mmail = 'bensonmwangi101@gmail.com'
+        hmail = emaile.get()
+        subject = 'Password reset'
+        text = 'password is 1234'
+        server = smtplib.SMTP(host, 587)
+        server.ehlo()
+        server.starttls()
+        # my token to send mail
+        # ....
+        # smtp.pelconsip.aruba.it
+        #password = 'kvsowmndcyjztyrf'
+        password = 'kzfevahqhuhffqfo'
+        #password = 'yprbzdjnlxjdswsg'
+        #password = 'uoazjqkuencmhakg'
+        # errore second factor
+        server.login(mmail, password)
+        server.sendmail(mmail, [hmail], text)
+        server.quit()
 
     def tkinput():
         global emaile
@@ -574,8 +561,8 @@ def activate():
     
     entry2 = Entry(new, width=19, font=('Times', 14),textvariable=content)
     entry2.place(x=395, y=30)
-    balloon.bind(entry2, "Enter valid number")
-    balloon.attributes('-topmost', True)
+    #balloon.bind(entry2, "Enter valid number")
+    #balloon.attributes('-topmost', True)
     
     button = Button(new, text="+Add Item", font=('Times', 11, 'bold'),bg='green',fg='white',
                     command=lambda : [save(),add_item()])
@@ -657,7 +644,7 @@ def activate():
     entryd.place(x=130, y=2)
     entryd.bind("<FocusIn>",tpack)
     entryd.bind("<Button-1>",tpack)
-    balloon.bind(entryd, "Choose date")
+    #balloon.bind(entryd, "Choose date")
     dbutton = Button(new, text = "Get Date",
         command = lambda: [fgetpack()], bg='skyblue', fg='black',
            font=("Times",11,"bold"), activebackground='skyblue')
@@ -802,8 +789,8 @@ def Uv_system():
     
     uentry2 = Entry(uvnew, width=19, font=('Times', 14),textvariable=ucontent)
     uentry2.place(x=395, y=30)
-    balloon.bind(uentry2, "Enter valid number")
-    balloon.attributes('-topmost', True)
+    #balloon.bind(uentry2, "Enter valid number")
+    #balloon.attributes('-topmost', True)
     
     ubutton = Button(uvnew, text="+Add Item", font=('Times', 11, 'bold'),bg='blue',fg='white',
                     command=lambda : [usave(),uadd_item()])
@@ -886,7 +873,7 @@ def Uv_system():
     uentryd.place(x=190, y=2)
     uentryd.bind("<FocusIn>",utpack)
     uentryd.bind("<Button-1>",utpack)
-    balloon.bind(uentryd, "Choose date")
+    #balloon.bind(uentryd, "Choose date")
     udbutton = Button(uvnew, text = "Get Date",
         command = lambda: [ufgetpack()], bg='skyblue', fg='black',
            font=("Times",11,"bold"), activebackground='skyblue')
@@ -1124,7 +1111,7 @@ def Fert_system():
     fentryd.place(x=5, y=2)
     fentryd.bind("<FocusIn>",ftpack)
     fentryd.bind("<Button-1>",ftpack)
-    balloon.bind(fentryd, "Choose date")
+    #balloon.bind(fentryd, "Choose date")
     fdbutton = Button(fvnew, text = "Get Date",
         command = lambda: [ffgetpack()], bg='skyblue', fg='black',
            font=("Times",11,"bold"), activebackground='skyblue')
@@ -1351,7 +1338,7 @@ def Gh_phase():
     gentryd.place(x=190, y=2)
     gentryd.bind("<FocusIn>",gtpack)
     gentryd.bind("<Button-1>",gtpack)
-    balloon.bind(gentryd, "Choose date")
+    #balloon.bind(gentryd, "Choose date")
     gdbutton = Button(gnew, text = "Get Date",
         command = lambda: [gfgetpack()], bg='skyblue', fg='black',
            font=("Times",11,"bold"), activebackground='skyblue')
@@ -11101,7 +11088,7 @@ var.set('DATE: ')
 entryd = Entry(frame, width=15, font=("Times",12,"bold"),fg='#800000', textvariable=var)
 entryd.place(x=130, y=2)
 entryd.bind("<Button-1>", lambda event: [calpop()])
-balloon.bind(entryd, "Choose date")
+#balloon.bind(entryd, "Choose date")
 
 
 def run():
@@ -11175,12 +11162,12 @@ addfbutton = Button(frame, text="+Add Fertilizers", font=('Times', 10, 'bold')
 addfbutton.place(x=10, y=625)
 addfbutton.bind('<Double-Button-1>', lambda event: [addlabel()])
 addfbutton.bind('<Button-1>', lambda event: [run()])
-balloon.bind(addfbutton, "Add new fertilizer")
+#balloon.bind(addfbutton, "Add new fertilizer")
 remvfbutton = Button(frame, text="-Remove Fertilizers", font=('Times', 10, 'bold')
                     ,bg='red',fg='white')
 
 remvfbutton.place(x=260, y=625)
-balloon.bind(remvfbutton, "Remove fertilizer")
+#balloon.bind(remvfbutton, "Remove fertilizer")
 
 
 remvfbutton.bind('<Double-Button-1>', lambda event: [removelabel(), removeentry()])
@@ -11344,7 +11331,7 @@ FerromaxE.bind('<FocusIn>', select_on_focus)
 newfertE = Entry(frame,width = 10, textvariable=text18)
 newfertE.bind("<Button-3>",do_popup)
 newfertE.bind('<FocusIn>', select_on_focus)
-balloon.bind(newfertE, "numbers")
+#balloon.bind(newfertE, "numbers")
 Water_cubicME = Entry(frame,width = 10, textvariable=text16)
 Water_cubicME.place(x = 300, y = 75)
 Water_cubicME.bind("<Button-3>",do_popup)
@@ -11427,28 +11414,28 @@ NCbutton = Button(frame, text="New Regime", command=lambda: [New_usage()]
 NCbutton.place(x=290, y=2)
 
 #Entries ballon  
-balloon.bind(Cbutton, "Calculate")
-balloon.bind(NCbutton, "Calculate")
-balloon.bind(Calcium_NitrateE,"numbers")
-balloon.bind(Potassium_NitrateE, "numbers")
-balloon.bind(Magnesium_NitrateE, "numbers")
-balloon.bind(FerillineE, "numbers")
-balloon.bind(BoraxE, "numbers")
-balloon.bind(Magnesium_sulphateE, "numbers")
-balloon.bind(Mono_p_phosphateE, "numbers")
-balloon.bind(Potassium_sulphateE, "numbers")
-balloon.bind(Ammonium_sulphateE, "numbers")
-balloon.bind(Sodium_MolyE, "numbers")
-balloon.bind(Mn_chellateE, "numbers")
-balloon.bind(Zn_chellateE, "numbers")
-balloon.bind(Cu_chellateE, "numbers")
-balloon.bind(Nitric_acidE, "numbers")
-balloon.bind(Phosphoric_acidE, "numbers")
-balloon.bind(FerromaxE, "numbers")
-balloon.bind(Water_cubicME, "numbers")
-balloon.bind(ghE, "Greenhouses")
-balloon.bind(modify, "Search")
-balloon.bind(Uv_percentE, "Recycle element %")
+##balloon.bind(Cbutton, "Calculate")
+##balloon.bind(NCbutton, "Calculate")
+##balloon.bind(Calcium_NitrateE,"numbers")
+##balloon.bind(Potassium_NitrateE, "numbers")
+##balloon.bind(Magnesium_NitrateE, "numbers")
+##balloon.bind(FerillineE, "numbers")
+##balloon.bind(BoraxE, "numbers")
+##balloon.bind(Magnesium_sulphateE, "numbers")
+##balloon.bind(Mono_p_phosphateE, "numbers")
+##balloon.bind(Potassium_sulphateE, "numbers")
+##balloon.bind(Ammonium_sulphateE, "numbers")
+##balloon.bind(Sodium_MolyE, "numbers")
+##balloon.bind(Mn_chellateE, "numbers")
+##balloon.bind(Zn_chellateE, "numbers")
+##balloon.bind(Cu_chellateE, "numbers")
+##balloon.bind(Nitric_acidE, "numbers")
+##balloon.bind(Phosphoric_acidE, "numbers")
+##balloon.bind(FerromaxE, "numbers")
+##balloon.bind(Water_cubicME, "numbers")
+##balloon.bind(ghE, "Greenhouses")
+##balloon.bind(modify, "Search")
+##balloon.bind(Uv_percentE, "Recycle element %")
 
 
 #Soil interface
@@ -11778,16 +11765,17 @@ def Exit(event=None):
 
 
 def about_app():
-    Pmw.aboutversion('1.0')
-    Pmw.aboutcopyright('Copyright PPM Calculator 2022\nAll rights reserved')
-    Pmw.aboutcontact(
-        'For information about this application contact:\n' +
-        ' Sales at Benson Mwangi\n' +
-        ' Phone: 0742309044\n' +
-        ' email: bensonmwangi101@gmail.com'
-        )
-    about = Pmw.AboutDialog(root, applicationname='FertRegime application')
-     
+    pass
+##    Pmw.aboutversion('1.0')
+##    Pmw.aboutcopyright('Copyright PPM Calculator 2022\nAll rights reserved')
+##    Pmw.aboutcontact(
+##        'For information about this application contact:\n' +
+##        ' Sales at Benson Mwangi\n' +
+##        ' Phone: 0742309044\n' +
+##        ' email: bensonmwangi101@gmail.com'
+##        )
+##    about = Pmw.AboutDialog(root, applicationname='FertRegime application')
+##     
 
 def hydro_description():
     text.insert(END, "\n Overall Regime ppm WITH 30% AFTER UV SOLUTION, Hydropinics")
@@ -11907,10 +11895,10 @@ def openNewWindow():
 
 
     text = Text(newWindow)
-    photo1=ImageTk.PhotoImage(file='hydro_regime.png')
-    photo2=ImageTk.PhotoImage(file='soil_regime.png')
-    photo3=ImageTk.PhotoImage(file='loading.png')
-    photo4=ImageTk.PhotoImage(file='lab_result.png')
+##    photo1=ImageTk.PhotoImage(file='hydro_regime.png')
+##    photo2=ImageTk.PhotoImage(file='soil_regime.png')
+##    photo3=ImageTk.PhotoImage(file='loading.png')
+##    photo4=ImageTk.PhotoImage(file='lab_result.png')
     scroll = Scrollbar(newWindow, command=text.yview)
 
     text.configure(yscrollcommand=scroll.set)
@@ -11957,7 +11945,7 @@ def openNewWindow():
     help_menu.add_command(label='about app', command=about_app)
     help_menu.add_command(label='converting ppm')
     help_menu.add_command(label='regime calculation demo')
-    help_menu.add_command(label='Recent lab documents', command = lab_result)
+    help_menu.add_command(label='Recent lab documents')
 
 
 #main window
@@ -11994,10 +11982,10 @@ edit_menu.add_command(label='Clear all', underline=1, command=lambda : [delete_e
 edit_menu.add_command(label='Select all', underline=0)
 
 
-photo1=ImageTk.PhotoImage(file='hydro_regime.png')
-photo2=ImageTk.PhotoImage(file='soil_regime.png')
-photo3=ImageTk.PhotoImage(file='loading.png')
-photo4=ImageTk.PhotoImage(file='lab_result.png')
+##photo1=ImageTk.PhotoImage(file='hydro_regime.png')
+##photo2=ImageTk.PhotoImage(file='soil_regime.png')
+#photo3=ImageTk.PhotoImage(file='loading.png')
+##photo4=ImageTk.PhotoImage(file='lab_result.png')
 
 text = Text(frame, height=110, width=100, bg='white', undo=True)
 
@@ -12063,7 +12051,7 @@ help_menu.add_separator()
 help_menu.add_command(label='about app',underline=0, command=about_app)
 help_menu.add_command(label='converting ppm',underline=0)
 help_menu.add_command(label='regime calculation demo', underline=0)
-help_menu.add_command(label='Recent lab documents', underline=11, command = lab_result)
+help_menu.add_command(label='Recent lab documents', underline=11)
 
 # right click mouse on frame
 
@@ -12107,7 +12095,8 @@ text.bind("<Button-3>", do_popup)
 
 
 def loading():
-    text.image_create(END, image=photo3)
+    ...
+    #text.image_create(END, image=photo3)
     
 loading()
 

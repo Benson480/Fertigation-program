@@ -75,16 +75,9 @@ from tkinterweb import HtmlFrame
 import tkinterweb
 import re
 from tkinterhtml import *
-
-
-### convert png to ico file
-##from PIL import Image
-##
-##filename = r'myapp.png'
-##img = Image.open(filename)
-##
-##img.save('myapp.ico',format = 'ICO', sizes=[(32,32)])
-##
+from datetime import date
+global current_time
+current_time = datetime.datetime.now()
 
 # Main window initialization
 root.geometry("1250x700")
@@ -139,6 +132,8 @@ def digits_only(*args):
     string19 = text19.get()
     string20 = text20.get()
     string21 = text21.get()
+    
+    #Validate entry
     if string1.replace('.', '').replace('', '0').replace('-', '').isdigit():  # Field's content is valid.
         last_string1 = string1
         if string2.replace('.', '').replace('', '0').replace('-', '').isdigit(): # Field's content is valid.
@@ -312,6 +307,7 @@ text21.set(last_string21)
 text21.trace('w', digits_only)
 
 #messagebox info
+
 def showMessage(message, type='info', timeout=2500):
     import tkinter as tk
     from tkinter import messagebox as msgb
@@ -338,6 +334,7 @@ def showMessage(message, type='info', timeout=2500):
 
 
 #Price database login
+    
 storedPassword = '1234'
 def login():
     def loginok(username,password):
@@ -377,13 +374,9 @@ def login():
             server.ehlo()
             server.starttls()
             # my token to send mail
-            # ....
             # smtp.pelconsip.aruba.it
-            #password = 'kvsowmndcyjztyrf'
             password = 'kzfevahqhuhffqfo'
-            #password = 'yprbzdjnlxjdswsg'
-            #password = 'uoazjqkuencmhakg'
-            # errore second factor
+            # error second factor
             server.login(mmail, password)
             server.sendmail(mmail, [hmail], text)
             server.quit()
@@ -394,7 +387,7 @@ def login():
         global emaile
         window = Tk()
         window.title('Reset password')
-        window.geometry('300x60')
+        window.geometry('320x60')
         question = StringVar()
         Label(window, text='Enter email').pack()
         emaile = Entry(window, width=38,textvariable=question)
@@ -436,6 +429,8 @@ def login():
         checkbutton = Checkbutton(window, text='show password',
                             command=lambda: show())
         checkbutton.grid(row=6, column=0)
+        closeButton = Button(window, text="Close",bg="red",activebackground="red",
+                             command=lambda:window.destroy()).grid(row=6, column=1)
         window.attributes('-topmost', True)
         window.mainloop()
 
@@ -552,7 +547,7 @@ def activate():
 
     def save():
         # This function is invoked when button `submit` is clicked
-        with open('PriceDB.txt', 'a') as file:
+        with open('PriceDB.txt', 'a', encoding="utf-8") as file:
             if content.get() != "" and var.get() != "" and var.get() != " " and var1.get() !="DATE: ":
                 file.write(var1.get())
                 file.write('-')
@@ -635,8 +630,8 @@ def activate():
 
 
     cal = Calendar(new, selectmode = 'day',
-               year = 2022, month = 4,
-               day = 15)
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)
 
     def tpack(event):
         cal.place(x=140, y=186)
@@ -666,6 +661,8 @@ def activate():
     dbutton.focus_set()
     dbutton.bind('<Button-1>', fgetpack)
     new.attributes('-topmost', True)
+
+
 
 #Uv system database window
 def Uv_system():
@@ -864,8 +861,8 @@ def Uv_system():
 
 
     ucal = Calendar(uvnew, selectmode = 'day',
-               year = 2022, month = 4,
-               day = 15)
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)
 
     def utpack(event):
         ucal.place(x=140, y=186)
@@ -1081,8 +1078,8 @@ def Fert_system():
 
 
     fcal = Calendar(fvnew, selectmode = 'day',
-               year = 2022, month = 4,
-               day = 15)
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)
 
     def ftpack(event):
         fcal.place(x=140, y=186)
@@ -1329,8 +1326,8 @@ def Gh_phase():
 
 
     gcal = Calendar(gnew, selectmode = 'day',
-               year = 2022, month = 4,
-               day = 15)
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)
 
     def gtpack(event):
         gcal.place(x=140, y=186)
@@ -10992,8 +10989,8 @@ def open_bothmcnalls():
 
 
 cal = Calendar(frame, selectmode = 'day',
-               year = 2022, month = 6,
-               day = 7)    
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)    
 def grad_date2(event=None):
     global cal
     global button
@@ -11009,52 +11006,73 @@ def grad_date2(event=None):
 
 
 #Calendar
-
+global counter
+counter = 1
 def calendar_view():
+    global counter, current_time
     def print_sel():
         pass
+    if counter < 2:
+        
+        top = Toplevel(root)
+        current_time
+        cal = Calendar(top,
+                       font="Arial 14", selectmode='day',
+                       cursor="hand1", year=current_time.year, month=current_time.month, day=current_time.day)
+        cal.pack(fill="both", expand=True)
+        counter += 1
+        print(counter)
+        def topdestroy():
+            top.withdraw()
+            
+        ttk.Button(top, text="ok", command=topdestroy).pack()
+    else:
+        counter = 1        
 
-    top = Toplevel(root)
 
-    cal = Calendar(top,
-                   font="Arial 14", selectmode='day',
-                   cursor="hand1", year=2022, month=6, day=15)
-    cal.pack(fill="both", expand=True)
-
-    def topdestroy():
-        top.destroy()
-    ttk.Button(top, text="ok", command=topdestroy).pack()
+def get_datem():
+    global entryd
+    global cal
+    global date1, dcounter
+    date1 = cal.get_date()
+    entryd.insert('end', date1)
+    
 
 
+var = StringVar()
+var.set('DATE: ')
+entryd = Entry(frame, width=15, font=("Times",12,"bold"),fg='#800000', textvariable=var)
+entryd.place(x=130, y=2)
+entryd.bind("<Button-1>", lambda event: [calpop()])
+balloon.bind(entryd, "Choose date")
 
-def calpop():
+
+global counter1
+counter1 = 1
+def calpop(event=True):
     global window
     global cal, cal_counter
     global entryd
     global date1
-    cwindow = Tk()
-    cwindow.title('Calender')
-    cwindow.geometry('300x230')
-    cal = Calendar(cwindow, selectmode = 'day',
-               year = 2022, month = 6,
-               day = 7)
-    cal.pack()
+    global counter1, current_time
+    cal = Calendar(frame, selectmode = 'day',
+               year = current_time.year, month = current_time.month,
+               day = current_time.day)
+    cal.place(x=130, y=2)
     date1 = cal.get_date()
-    dbutton = Button(cwindow, text = "Get Date", bg='skyblue', fg='black',
-                    font=("Times",11,"bold"), activebackground='skyblue',
-                     command = lambda: [get_datem(),cwindow.destroy()])
+    dbutton = Button(root, text = "Get Date", bg='skyblue', fg='black',
+                    font=("Times",11,"bold"), activebackground='skyblue', relief=GROOVE,
+                     command = lambda: [get_datem(),cwindow_des()])
     
 
     dbutton.bind('<Return>', calpop)
     dbutton.focus_set()
-    dbutton.pack()
+    dbutton.place(x=210, y=187)
+    def cwindow_des():
+        cal.place_forget()
+        dbutton.place_forget()
     var.set('DATE: ')
-    cwindow.attributes('-topmost', True)
-    cwindow.mainloop()
 
-
-
-    
 cal_counter = 0
 def delete_cal():
     global window
@@ -11069,11 +11087,6 @@ def delete_cal():
 
 
 
-
-
-
-
-
 def close_top(top):
     btn.config(state='normal')
     top.destroy()
@@ -11084,24 +11097,6 @@ def open_help():
     top = Toplevel(root)
     top.protocol('WM_DELETE_WINDOW', lambda: close_top(top))
     top.focus_force()
-
-
-
-def get_datem():
-    global entryd
-    global cal
-    global date1
-    date1 = cal.get_date()
-    entryd.insert('end', date1)
-    
-
-
-var = StringVar()
-var.set('DATE: ')
-entryd = Entry(frame, width=15, font=("Times",12,"bold"),fg='#800000', textvariable=var)
-entryd.place(x=130, y=2)
-entryd.bind("<Button-1>", lambda event: [calpop()])
-balloon.bind(entryd, "Choose date")
 
 
 def run():
@@ -11549,125 +11544,6 @@ barVar.set(0)
 
 Cbutton.bind('<Return>', update_progress_bar)
 
-# Hdroponics PPM interface
-def Home_Hydro_PPM():
-    global frame
-    Header_hydro =Label(frame, text="HYDRO REGIME - PPM PROPOSED", font=("Times",16,"bold"), fg="blue")
-    Header_hydro.place(x = 130, y = 25)
-
-    Fertilizers =Label(frame, text="Elements      ", font=("Times",13,"bold"))
-    Fertilizers.place(x = 10, y = 50)
-    
-    Amount =Label(frame, text="Amount in ppm", font=("Times",13,"bold"))
-    Amount.place(x = 160, y = 50)
-
-    Calcim_Nitrate=Label(frame, text="No3                    ", font=("Times",13))
-    Calcim_Nitrate.place(x = 10, y = 75)
-
-    Potassium_Nitrate=Label(frame, text="P                               ", font=("Times",13))
-    Potassium_Nitrate.place(x = 10, y = 100)
-
-    Magnesium_Nitrate=Label(frame, text="K                                 ", font=("Times",13))
-    Magnesium_Nitrate.place(x = 10, y = 125)
-    
-    Ferilline=Label(frame, text="Ca                         ", font=("Times",13))
-    Ferilline.place(x = 10, y = 150)
-    
-    Borax=Label(frame, text="Mg                       ", font=("Times",13))
-    Borax.place(x = 10, y = 175)
-
-    Magnesium_sulphate=Label(frame, text="S                                 ", font=("Times",13))
-    Magnesium_sulphate.place(x = 10, y = 200)
-    
-    Mono_p_phosphate =Label(frame, text="Fe                             ", font=("Times",13))
-    Mono_p_phosphate.place(x = 10, y = 225)
-    
-    Potassium_sulphate =Label(frame, text="Mn                             ", font=("Times",13))
-    Potassium_sulphate.place(x = 10, y = 250)
-
-    Ammonium_sulphate =Label(frame, text="Cu                              ", font=("Times",13))
-    Ammonium_sulphate.place(x = 10, y = 275)
-
-    Sodium_Moly =Label(frame, text="B                                ", font=("Times",13))
-    Sodium_Moly.place(x = 10, y = 300)
-
-    Mn_chellate =Label(frame, text="Zn                       ", font=("Times",13))
-    Mn_chellate.place(x = 10, y = 325)
-
-    Zn_chellate =Label(frame, text="Mo                         ", font=("Times",12))
-    Zn_chellate.place(x = 10, y = 350)
-
-    Cu_chellate =Label(frame, text="N-NH4                      ", font=("Times",13))
-    Cu_chellate.place(x = 10, y = 375)
-
-    Nitric_acid =Label(frame, text="pH                       ", font=("Times",13))
-    Nitric_acid.place(x = 10, y = 400)
-
-    Phosphoric_acid =Label(frame, text="EC                          ", font=("Times",13))
-    Phosphoric_acid.place(x = 10, y = 425)
-    
-    Ferromax =Label(frame, text="HCO3             ", font=("Times",13))
-    Ferromax.place(x = 10, y = 450)
-
-# Soil PPM interface
-def Home_Soil_PPM():
-    global frame
-    Header_hydro =Label(frame, text="SOIL REGIME - PPM PROPOSED     ", font=("Times",16,"bold"), fg="blue")
-    Header_hydro.place(x = 130, y = 25)
-
-    Fertilizers =Label(frame, text="Elements      ", font=("Times",13,"bold"))
-    Fertilizers.place(x = 10, y = 50)
-    
-    Amount =Label(frame, text="Amount in ppm", font=("Times",13,"bold"))
-    Amount.place(x = 160, y = 50)
-
-    Calcim_Nitrate=Label(frame, text="No3                    ", font=("Times",13))
-    Calcim_Nitrate.place(x = 10, y = 75)
-
-    Potassium_Nitrate=Label(frame, text="P                               ", font=("Times",13))
-    Potassium_Nitrate.place(x = 10, y = 100)
-
-    Magnesium_Nitrate=Label(frame, text="K                                 ", font=("Times",13))
-    Magnesium_Nitrate.place(x = 10, y = 125)
-    
-    Ferilline=Label(frame, text="Ca                         ", font=("Times",13))
-    Ferilline.place(x = 10, y = 150)
-    
-    Borax=Label(frame, text="Mg                       ", font=("Times",13))
-    Borax.place(x = 10, y = 175)
-
-    Magnesium_sulphate=Label(frame, text="S                                 ", font=("Times",13))
-    Magnesium_sulphate.place(x = 10, y = 200)
-    
-    Mono_p_phosphate =Label(frame, text="Fe                             ", font=("Times",13))
-    Mono_p_phosphate.place(x = 10, y = 225)
-    
-    Potassium_sulphate =Label(frame, text="Mn                             ", font=("Times",13))
-    Potassium_sulphate.place(x = 10, y = 250)
-
-    Ammonium_sulphate =Label(frame, text="Cu                              ", font=("Times",13))
-    Ammonium_sulphate.place(x = 10, y = 275)
-
-    Sodium_Moly =Label(frame, text="B                                ", font=("Times",13))
-    Sodium_Moly.place(x = 10, y = 300)
-
-    Mn_chellate =Label(frame, text="Zn                       ", font=("Times",13))
-    Mn_chellate.place(x = 10, y = 325)
-
-    Zn_chellate =Label(frame, text="Mo                         ", font=("Times",12))
-    Zn_chellate.place(x = 10, y = 350)
-
-    Cu_chellate =Label(frame, text="N-NH4                      ", font=("Times",13))
-    Cu_chellate.place(x = 10, y = 375)
-
-    Nitric_acid =Label(frame, text="pH                       ", font=("Times",13))
-    Nitric_acid.place(x = 10, y = 400)
-
-    Phosphoric_acid =Label(frame, text="EC                          ", font=("Times",13))
-    Phosphoric_acid.place(x = 10, y = 425)
-
-    Ferromax =Label(frame, text="HCO3               ", font=("Times",13))
-    Ferromax.place(x = 10, y = 450)
 
 #Save document
 
@@ -11965,8 +11841,8 @@ def openNewWindow():
 file_menu = Menu(my_menu, tearoff=0)
 my_menu.add_cascade(label="File", menu=file_menu, underline=0)
 file_menu.add_separator()
-file_menu.add_command(label='New', underline=0)
-file_menu.add_command(label='Open', underline=0)
+file_menu.add_command(label='New', underline=0,command=lambda: openNewWindow())
+file_menu.add_command(label='Open', underline=0, command=lambda: openNewWindow())
 file_menu.add_command(label='Hydro Home', underline=0, command=lambda : [Hydroponics(), delete_entries(), Clear_get()])
 file_menu.add_command(label='Soil Home', underline=3, command=lambda : [Soil(), delete_entries(), Clear_get()])
 file_menu.add_command(label='Save as', underline=1, command=file_save)
@@ -12080,16 +11956,6 @@ def mediaf(event):
         delete_entries()
         clearnewe()
         Clear_get()
-##    if menu.get() == "HYDRO PPM":
-##        Home_Hydro_PPM()
-##        delete_entries()
-##        clearnewe()
-##        Clear_get()
-##    if menu.get() == "SOIL PPM":
-##        Home_Soil_PPM()
-##        delete_entries()
-##        clearnewe()
-##        Clear_get()
 
 options = ["SOIL", "HYDRO"]
 #Set the Menu initially
